@@ -2,7 +2,10 @@
     "name": "COMP9033",
     "description": "Cloud and Distributed Computing Laboratory",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-feedparser": "0.3.0",
+        "node-red-node-sentiment": "0.1.6"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
