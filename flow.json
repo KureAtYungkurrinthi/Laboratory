@@ -2,7 +2,7 @@
     {
         "id": "694096558429e4b4",
         "type": "tab",
-        "label": "Flow 0",
+        "label": "News Translation",
         "disabled": true,
         "info": "",
         "env": []
@@ -14,6 +14,84 @@
         "disabled": true,
         "info": "",
         "env": []
+    },
+    {
+        "id": "442aac72e30ab77a",
+        "type": "tab",
+        "label": "Natural Language Understanding",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0618a603f5d00de3",
+        "type": "tab",
+        "label": "NLU",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2f6208f4f76c9347",
+        "type": "feedparse",
+        "z": "694096558429e4b4",
+        "name": "The Guardian",
+        "url": "https://www.theguardian.com/au/rss",
+        "interval": "2",
+        "ignorefirst": false,
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "d9f772edf7d2c8c6"
+            ]
+        ]
+    },
+    {
+        "id": "d9f772edf7d2c8c6",
+        "type": "watson-translator",
+        "z": "694096558429e4b4",
+        "name": "",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "en",
+        "destlang": "zh",
+        "apikey": "g4UDGll9ggcW_xNEV8XLsFqGFDSTdVjmpUr0kFzZAtoB",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "en",
+        "destlanghidden": "zh",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/22e39681-5402-49a3-95a7-fd2b244e3463",
+        "x": 390,
+        "y": 180,
+        "wires": [
+            [
+                "ef22666fd5f3ddbc"
+            ]
+        ]
+    },
+    {
+        "id": "ef22666fd5f3ddbc",
+        "type": "debug",
+        "z": "694096558429e4b4",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 180,
+        "wires": []
     },
     {
         "id": "6936d325d3c6c566",
@@ -76,7 +154,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
+        "x": 1220,
         "y": 240,
         "wires": []
     },
@@ -95,7 +173,341 @@
         "y": 240,
         "wires": [
             [
+                "e9c5829b27a8d546"
+            ]
+        ]
+    },
+    {
+        "id": "e9c5829b27a8d546",
+        "type": "switch",
+        "z": "8e42895451dfdf19",
+        "name": "comparison",
+        "property": "sentiment.score",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 790,
+        "y": 240,
+        "wires": [
+            [
+                "2221258e2177321c"
+            ],
+            [
+                "88b90a235ee69f0b"
+            ],
+            [
+                "635233446ba8ab48"
+            ]
+        ]
+    },
+    {
+        "id": "88b90a235ee69f0b",
+        "type": "change",
+        "z": "8e42895451dfdf19",
+        "name": "neutral",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "neutral",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 240,
+        "wires": [
+            [
                 "8977716c62c3e6c9"
+            ]
+        ]
+    },
+    {
+        "id": "2221258e2177321c",
+        "type": "change",
+        "z": "8e42895451dfdf19",
+        "name": "negative",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "negative",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 180,
+        "wires": [
+            [
+                "8977716c62c3e6c9"
+            ]
+        ]
+    },
+    {
+        "id": "635233446ba8ab48",
+        "type": "change",
+        "z": "8e42895451dfdf19",
+        "name": "positive",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "positive",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1000,
+        "y": 300,
+        "wires": [
+            [
+                "8977716c62c3e6c9"
+            ]
+        ]
+    },
+    {
+        "id": "8607448ca41d1d99",
+        "type": "natural-language-understanding",
+        "z": "442aac72e30ab77a",
+        "name": "",
+        "categories": true,
+        "limitcategories": "3",
+        "classifications": true,
+        "classifications-model": "8",
+        "concepts": true,
+        "maxconcepts": "8",
+        "doc-emotion": true,
+        "doc-emotion-target": "",
+        "doc-sentiment": true,
+        "doc-sentiment-target": "",
+        "entity": true,
+        "entity-emotion": true,
+        "entity-sentiment": true,
+        "maxentities": "50",
+        "keyword": true,
+        "keyword-emotion": true,
+        "keyword-sentiment": true,
+        "maxkeywords": "50",
+        "metadata": false,
+        "relation": true,
+        "semantic": true,
+        "semantic-entities": true,
+        "semantic-keywords": true,
+        "maxsemantics": "50",
+        "limittextcharacters": "0",
+        "syntax": true,
+        "syntax-sentences": true,
+        "syntax-tokens-lemma": true,
+        "syntax-tokens-pos": true,
+        "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/ef653fa9-3c22-4b79-be15-05ef0ba0485f",
+        "x": 420,
+        "y": 140,
+        "wires": [
+            [
+                "dd0e4f16fedd5522"
+            ]
+        ]
+    },
+    {
+        "id": "8f2c3e4a9ec2e57e",
+        "type": "inject",
+        "z": "442aac72e30ab77a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
+        "payloadType": "str",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "8607448ca41d1d99"
+            ]
+        ]
+    },
+    {
+        "id": "dd0e4f16fedd5522",
+        "type": "debug",
+        "z": "442aac72e30ab77a",
+        "name": "msg.features",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "features",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "3838f8e2.15c778",
+        "type": "inject",
+        "z": "0618a603f5d00de3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
+        "payloadType": "str",
+        "x": 290,
+        "y": 240,
+        "wires": [
+            [
+                "11ef3acb.4d0c55"
+            ]
+        ]
+    },
+    {
+        "id": "11ef3acb.4d0c55",
+        "type": "function",
+        "z": "0618a603f5d00de3",
+        "name": "",
+        "func": "msg.nlu_options = \n{\"entity_model\":\"8289a28d-8f5e-4370-9133-00fa884b5467\",\n \"relations_model\":\"8289a28d-8f5e-4370-9133-00fa884b5467\"    \n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 240,
+        "wires": [
+            [
+                "b2f90ff7.c4d19"
+            ]
+        ]
+    },
+    {
+        "id": "3e4052f6.5bb30e",
+        "type": "debug",
+        "z": "0618a603f5d00de3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1130,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b2f90ff7.c4d19",
+        "type": "natural-language-understanding",
+        "z": "0618a603f5d00de3",
+        "name": "",
+        "categories": true,
+        "limitcategories": "3",
+        "classifications": false,
+        "classifications-model": "",
+        "concepts": false,
+        "maxconcepts": "8",
+        "doc-emotion": false,
+        "doc-emotion-target": "",
+        "doc-sentiment": true,
+        "doc-sentiment-target": "",
+        "entity": true,
+        "entity-emotion": false,
+        "entity-sentiment": false,
+        "maxentities": "50",
+        "keyword": false,
+        "keyword-emotion": false,
+        "keyword-sentiment": false,
+        "maxkeywords": "50",
+        "metadata": false,
+        "relation": true,
+        "semantic": false,
+        "semantic-entities": false,
+        "semantic-keywords": false,
+        "maxsemantics": "50",
+        "limittextcharacters": "0",
+        "syntax": false,
+        "syntax-sentences": false,
+        "syntax-tokens-lemma": false,
+        "syntax-tokens-pos": false,
+        "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/ef653fa9-3c22-4b79-be15-05ef0ba0485f",
+        "x": 680,
+        "y": 240,
+        "wires": [
+            [
+                "a890f235.ebf3f"
+            ]
+        ]
+    },
+    {
+        "id": "a890f235.ebf3f",
+        "type": "function",
+        "z": "0618a603f5d00de3",
+        "name": "",
+        "func": "msg.payload = msg.features;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 920,
+        "y": 240,
+        "wires": [
+            [
+                "3e4052f6.5bb30e"
             ]
         ]
     }
