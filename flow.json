@@ -71,8 +71,8 @@
         "topic": "",
         "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
         "payloadType": "str",
-        "x": 110,
-        "y": 240,
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "88b4181fcd4a9d1b",
