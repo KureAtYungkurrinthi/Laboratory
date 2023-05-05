@@ -14,7 +14,7 @@
         "name": "",
         "categories": true,
         "limitcategories": "3",
-        "classifications": true,
+        "classifications": false,
         "classifications-model": "8",
         "concepts": true,
         "maxconcepts": "8",
@@ -114,26 +114,28 @@
         "wires": []
     },
     {
-        "id": "43e979b079a6baf5",
-        "type": "e-mail in",
+        "id": "1b0f6b086ab7d201",
+        "type": "inject",
         "z": "a1856de285adc81c",
         "name": "",
-        "protocol": "IMAP",
-        "server": "imap.gmail.com",
-        "useSSL": true,
-        "autotls": "never",
-        "port": "993",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "box": "INBOX",
-        "disposition": "Read",
-        "criteria": "UNSEEN",
-        "repeat": "300",
-        "fetch": "auto",
-        "inputs": 0,
-        "x": 130,
-        "y": 120,
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
+        "payloadType": "str",
+        "x": 170,
+        "y": 320,
         "wires": [
             [
                 "88b4181fcd4a9d1b",
