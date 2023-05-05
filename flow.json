@@ -88,7 +88,7 @@
         "tosidebar": true,
         "console": true,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "feature",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
