@@ -1,1 +1,99 @@
-[]
+[
+    {
+        "id": "a1856de285adc81c",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "88b4181fcd4a9d1b",
+        "type": "natural-language-understanding",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "categories": false,
+        "limitcategories": "3",
+        "classifications": false,
+        "classifications-model": "8",
+        "concepts": false,
+        "maxconcepts": "8",
+        "doc-emotion": false,
+        "doc-emotion-target": "",
+        "doc-sentiment": false,
+        "doc-sentiment-target": "",
+        "entity": false,
+        "entity-emotion": false,
+        "entity-sentiment": false,
+        "maxentities": "50",
+        "keyword": false,
+        "keyword-emotion": false,
+        "keyword-sentiment": false,
+        "maxkeywords": "50",
+        "metadata": false,
+        "relation": false,
+        "semantic": false,
+        "semantic-entities": false,
+        "semantic-keywords": false,
+        "maxsemantics": "50",
+        "limittextcharacters": "0",
+        "syntax": false,
+        "syntax-sentences": false,
+        "syntax-tokens-lemma": false,
+        "syntax-tokens-pos": false,
+        "service-endpoint": "",
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "60cd4a6a6e24b04d"
+            ]
+        ]
+    },
+    {
+        "id": "1b0f6b086ab7d201",
+        "type": "inject",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
+        "payloadType": "str",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "88b4181fcd4a9d1b"
+            ]
+        ]
+    },
+    {
+        "id": "60cd4a6a6e24b04d",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 240,
+        "wires": []
+    }
+]
