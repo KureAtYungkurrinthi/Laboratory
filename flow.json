@@ -18,7 +18,7 @@
         "classifications-model": "8",
         "concepts": true,
         "maxconcepts": "8",
-        "doc-emotion": false,
+        "doc-emotion": true,
         "doc-emotion-target": "",
         "doc-sentiment": false,
         "doc-sentiment-target": "",
