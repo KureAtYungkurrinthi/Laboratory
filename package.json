@@ -5,7 +5,8 @@
     "dependencies": {
         "node-red-node-feedparser": "0.3.0",
         "node-red-node-sentiment": "0.1.6",
-        "node-red-node-watson": "0.10.3"
+        "node-red-node-watson": "0.10.3",
+        "node-red-dashboard": "3.4.0"
     },
     "node-red": {
         "settings": {
