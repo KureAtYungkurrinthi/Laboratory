@@ -43,7 +43,7 @@
         "syntax-tokens-pos": false,
         "service-endpoint": "",
         "x": 380,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "60cd4a6a6e24b04d"
@@ -75,7 +75,8 @@
         "y": 240,
         "wires": [
             [
-                "88b4181fcd4a9d1b"
+                "88b4181fcd4a9d1b",
+                "a98ce99f0bdc684a"
             ]
         ]
     },
@@ -92,8 +93,54 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 240,
+        "x": 620,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a98ce99f0bdc684a",
+        "type": "watson-translator",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "action": "translate",
+        "basemodel": "",
+        "domain": "news",
+        "srclang": "en",
+        "destlang": "fr",
+        "apikey": "8XjrcLsoZzhHTj6yBMILGvFXvrH4D5LgN2lX7B9Sj2r-",
+        "custom": "",
+        "domainhidden": "",
+        "srclanghidden": "",
+        "destlanghidden": "",
+        "basemodelhidden": "",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "",
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "b172e12d3b89792c"
+            ]
+        ]
+    },
+    {
+        "id": "b172e12d3b89792c",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 380,
         "wires": []
     }
 ]
