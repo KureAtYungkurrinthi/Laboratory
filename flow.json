@@ -160,8 +160,8 @@
         "disposition": "Read",
         "criteria": "UNSEEN",
         "repeat": "300",
-        "fetch": "trigger",
-        "inputs": 1,
+        "fetch": "auto",
+        "inputs": 0,
         "x": 250,
         "y": 120,
         "wires": [
@@ -183,7 +183,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 380,
+        "x": 460,
         "y": 120,
         "wires": []
     },
