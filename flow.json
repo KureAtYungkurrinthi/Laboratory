@@ -142,5 +142,49 @@
                 "a98ce99f0bdc684a"
             ]
         ]
+    },
+    {
+        "id": "7e02ddd6d130feeb",
+        "type": "e-mail in",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "300",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "905be7d6700d62c5"
+            ]
+        ]
+    },
+    {
+        "id": "905be7d6700d62c5",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 380,
+        "y": 120,
+        "wires": []
     }
 ]
