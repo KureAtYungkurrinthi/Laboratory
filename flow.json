@@ -76,12 +76,12 @@
         "basemodel": "ar-en",
         "domain": "general",
         "srclang": "en",
-        "destlang": "de",
+        "destlang": "zh-TW",
         "apikey": "8XjrcLsoZzhHTj6yBMILGvFXvrH4D5LgN2lX7B9Sj2r-",
         "custom": "",
         "domainhidden": "general",
         "srclanghidden": "en",
-        "destlanghidden": "de",
+        "destlanghidden": "zh-TW",
         "basemodelhidden": "ar-en",
         "customhidden": "",
         "filetype": "forcedglossary",
@@ -139,26 +139,8 @@
         "wires": [
             [
                 "88b4181fcd4a9d1b",
-                "a98ce99f0bdc684a",
-                "72a4e5f9e483d094"
+                "a98ce99f0bdc684a"
             ]
         ]
-    },
-    {
-        "id": "72a4e5f9e483d094",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "debug 3",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 380,
-        "y": 140,
-        "wires": []
     }
 ]
