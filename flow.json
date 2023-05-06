@@ -86,7 +86,7 @@
         "customhidden": "",
         "filetype": "forcedglossary",
         "trainid": "",
-        "lgparams2": false,
+        "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
         "x": 390,
         "y": 380,
