@@ -151,7 +151,7 @@
         "protocol": "IMAP",
         "server": "imap.gmail.com",
         "useSSL": true,
-        "autotls": "never",
+        "autotls": "always",
         "port": "993",
         "authtype": "BASIC",
         "saslformat": true,
