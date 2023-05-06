@@ -201,5 +201,51 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "3449f2731d0d0a75",
+        "type": "inject",
+        "z": "a1856de285adc81c",
+        "name": "Node-red",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello Node Red",
+        "payloadType": "str",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "1bdded09370836d8"
+            ]
+        ]
+    },
+    {
+        "id": "1bdded09370836d8",
+        "type": "e-mail",
+        "z": "a1856de285adc81c",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "patelkushal682@gmail.com",
+        "dname": "",
+        "x": 780,
+        "y": 560,
+        "wires": []
     }
 ]
