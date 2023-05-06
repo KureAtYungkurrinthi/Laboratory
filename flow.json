@@ -147,7 +147,7 @@
         "id": "7e02ddd6d130feeb",
         "type": "e-mail in",
         "z": "a1856de285adc81c",
-        "name": "Wai Kin Yiu",
+        "name": "imap",
         "protocol": "IMAP",
         "server": "imap.gmail.com",
         "useSSL": true,
@@ -160,10 +160,10 @@
         "disposition": "Read",
         "criteria": "UNSEEN",
         "repeat": "300",
-        "fetch": "auto",
-        "inputs": 0,
-        "x": 250,
-        "y": 120,
+        "fetch": "trigger",
+        "inputs": 1,
+        "x": 390,
+        "y": 140,
         "wires": [
             [
                 "905be7d6700d62c5"
@@ -183,8 +183,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 120,
+        "x": 640,
+        "y": 100,
         "wires": []
     },
     {
@@ -196,10 +196,12 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 150,
-        "y": 200,
+        "x": 310,
+        "y": 60,
         "wires": [
-            []
+            [
+                "7e02ddd6d130feeb"
+            ]
         ]
     }
 ]
