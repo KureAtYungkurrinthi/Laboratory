@@ -147,7 +147,7 @@
         "id": "7e02ddd6d130feeb",
         "type": "e-mail in",
         "z": "a1856de285adc81c",
-        "name": "",
+        "name": "Wai Kin Yiu",
         "protocol": "IMAP",
         "server": "imap.gmail.com",
         "useSSL": true,
@@ -162,7 +162,7 @@
         "repeat": "300",
         "fetch": "auto",
         "inputs": 0,
-        "x": 230,
+        "x": 250,
         "y": 120,
         "wires": [
             [
