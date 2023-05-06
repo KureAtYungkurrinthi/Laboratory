@@ -166,7 +166,7 @@
         "y": 140,
         "wires": [
             [
-                "905be7d6700d62c5"
+                "ac9d2dd9788b1881"
             ]
         ]
     },
@@ -183,8 +183,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 100,
+        "x": 820,
+        "y": 120,
         "wires": []
     },
     {
@@ -252,17 +252,19 @@
         "id": "ac9d2dd9788b1881",
         "type": "function",
         "z": "a1856de285adc81c",
-        "name": "function 1",
-        "func": "\nreturn msg;",
+        "name": "saveEmailToPayload",
+        "func": "// Get the emails\n\nvar email = {\n    topic: msg.topic,\n    payload: msg.payload,\n    html: msg.html,\n    from: msg.from,\n    date: msg.date,\n    header: msg.header,\n    attachments: msg.attachments\n};\nmsg.payload = email;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 580,
-        "y": 180,
+        "x": 560,
+        "y": 160,
         "wires": [
-            []
+            [
+                "905be7d6700d62c5"
+            ]
         ]
     }
 ]
