@@ -253,7 +253,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "saveEmailToPayload",
-        "func": "// Get the emails\n\nvar email = {\n    topic: msg.topic,\n    payload: msg.payload,\n    html: msg.html,\n    from: msg.from,\n    date: msg.date,\n    header: msg.header,\n    attachments: msg.attachments\n};\nmsg.payload = email;\nconsole.log(email);\nreturn msg;",
+        "func": "// Get the emails\nconsole.debug(\"Emails:\" + msg);\nvar email = {\n    topic: msg.topic,\n    payload: msg.payload,\n    html: msg.html,\n    from: msg.from,\n    date: msg.date,\n    header: msg.header,\n    attachments: msg.attachments\n};\nmsg.payload = email;\nconsole.log(email);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
