@@ -63,8 +63,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 200,
+        "x": 630,
+        "y": 240,
         "wires": []
     },
     {
@@ -110,7 +110,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
+        "x": 650,
         "y": 300,
         "wires": []
     },
@@ -258,7 +258,7 @@
         "repeat": "300",
         "fetch": "trigger",
         "inputs": 1,
-        "x": 130,
+        "x": 90,
         "y": 180,
         "wires": [
             [
@@ -278,7 +278,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 610,
+        "x": 550,
         "y": 360,
         "wires": [
             [
@@ -299,7 +299,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
+        "x": 810,
         "y": 360,
         "wires": []
     }
