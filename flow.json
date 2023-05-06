@@ -179,7 +179,7 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "topic",
+        "complete": "payload",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
@@ -260,7 +260,7 @@
         "finalize": "",
         "libs": [],
         "x": 560,
-        "y": 160,
+        "y": 100,
         "wires": [
             [
                 "905be7d6700d62c5"
