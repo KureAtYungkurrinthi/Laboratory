@@ -2,7 +2,9 @@
     "name": "SmartInbox",
     "description": "Smart Email Inbox utilising Watson and IBM Cloud",
     "version": "0.0.1",
-    "dependencies": {},
+    "dependencies": {
+        "node-red-node-email": "2.0.0"
+    },
     "node-red": {
         "settings": {
             "flowFile": "flow.json",
