@@ -158,7 +158,7 @@
         "token": "oauth2Response.access_token",
         "box": "INBOX",
         "disposition": "Read",
-        "criteria": "UNSEEN",
+        "criteria": "ALL",
         "repeat": "300",
         "fetch": "auto",
         "inputs": 0,
