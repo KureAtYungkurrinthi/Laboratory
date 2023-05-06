@@ -76,12 +76,12 @@
         "basemodel": "ar-en",
         "domain": "general",
         "srclang": "en",
-        "destlang": "hi",
+        "destlang": "zh-TW",
         "apikey": "8XjrcLsoZzhHTj6yBMILGvFXvrH4D5LgN2lX7B9Sj2r-",
         "custom": "",
         "domainhidden": "general",
         "srclanghidden": "en",
-        "destlanghidden": "hi",
+        "destlanghidden": "zh-TW",
         "basemodelhidden": "ar-en",
         "customhidden": "",
         "filetype": "forcedglossary",
@@ -162,7 +162,7 @@
         "repeat": "300",
         "fetch": "auto",
         "inputs": 0,
-        "x": 390,
+        "x": 410,
         "y": 140,
         "wires": [
             [
@@ -223,8 +223,8 @@
         "topic": "",
         "payload": "Hello Node Red",
         "payloadType": "str",
-        "x": 280,
-        "y": 580,
+        "x": 360,
+        "y": 520,
         "wires": [
             [
                 "1bdded09370836d8"
@@ -244,18 +244,25 @@
         "tls": true,
         "name": "patelkushal682@gmail.com",
         "dname": "",
-        "x": 620,
-        "y": 620,
+        "x": 780,
+        "y": 560,
         "wires": []
     },
     {
-        "id": "2cfcbcf0e182ea2c",
-        "type": "comment",
+        "id": "ac9d2dd9788b1881",
+        "type": "function",
         "z": "a1856de285adc81c",
-        "name": "",
-        "info": "try youself to send email to your email id,\njust insert your email id into send id only \nDo not change userid and password",
-        "x": 280,
-        "y": 520,
-        "wires": []
+        "name": "function 1",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            []
+        ]
     }
 ]
