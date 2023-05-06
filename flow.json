@@ -89,7 +89,7 @@
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
         "x": 430,
-        "y": 340,
+        "y": 360,
         "wires": [
             [
                 "b172e12d3b89792c",
@@ -111,7 +111,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 340,
+        "y": 360,
         "wires": []
     },
     {
@@ -136,7 +136,7 @@
         "payload": "Hello Node Red",
         "payloadType": "str",
         "x": 360,
-        "y": 520,
+        "y": 560,
         "wires": [
             [
                 "1bdded09370836d8"
@@ -157,7 +157,7 @@
         "name": "patelkushal682@gmail.com",
         "dname": "",
         "x": 780,
-        "y": 560,
+        "y": 600,
         "wires": []
     },
     {
@@ -218,7 +218,7 @@
         "finalize": "",
         "libs": [],
         "x": 450,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "0b8e73c112909bde"
@@ -239,7 +239,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 730,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
