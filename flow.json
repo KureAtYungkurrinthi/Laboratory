@@ -180,12 +180,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
+        "complete": "topic",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 120,
+        "x": 620,
+        "y": 60,
         "wires": []
     },
     {
