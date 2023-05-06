@@ -256,8 +256,8 @@
         "disposition": "Read",
         "criteria": "ALL",
         "repeat": "300",
-        "fetch": "auto",
-        "inputs": 0,
+        "fetch": "trigger",
+        "inputs": 1,
         "x": 130,
         "y": 180,
         "wires": [
