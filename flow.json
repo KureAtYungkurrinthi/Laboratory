@@ -196,8 +196,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 310,
-        "y": 60,
+        "x": 250,
+        "y": 120,
         "wires": [
             [
                 "7e02ddd6d130feeb"
