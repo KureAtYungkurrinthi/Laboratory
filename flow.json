@@ -160,8 +160,8 @@
         "disposition": "Read",
         "criteria": "UNSEEN",
         "repeat": "300",
-        "fetch": "trigger",
-        "inputs": 1,
+        "fetch": "auto",
+        "inputs": 0,
         "x": 230,
         "y": 120,
         "wires": [
@@ -196,12 +196,10 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 90,
+        "x": 150,
         "y": 200,
         "wires": [
-            [
-                "7e02ddd6d130feeb"
-            ]
+            []
         ]
     }
 ]
