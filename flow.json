@@ -260,10 +260,12 @@
         "initialize": "// Code added here will be run once\n// whenever the node is started.\nconsole.debug(\"saveEmailToPayload starting!\");\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconsole.debug(\"saveEmailToPayload stoped!\");\n",
         "libs": [],
-        "x": 560,
+        "x": 640,
         "y": 140,
         "wires": [
-            []
+            [
+                "88b4181fcd4a9d1b"
+            ]
         ]
     }
 ]
