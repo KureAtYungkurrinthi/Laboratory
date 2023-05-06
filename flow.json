@@ -166,7 +166,8 @@
         "y": 100,
         "wires": [
             [
-                "ac9d2dd9788b1881"
+                "ac9d2dd9788b1881",
+                "905be7d6700d62c5"
             ]
         ]
     },
@@ -260,11 +261,9 @@
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconsole.debug(\"saveEmailToPayload stoped!\");\n",
         "libs": [],
         "x": 560,
-        "y": 100,
+        "y": 140,
         "wires": [
-            [
-                "905be7d6700d62c5"
-            ]
+            []
         ]
     }
 ]
