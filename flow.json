@@ -76,12 +76,12 @@
         "basemodel": "ar-en",
         "domain": "general",
         "srclang": "en",
-        "destlang": "zh-TW",
+        "destlang": "hi",
         "apikey": "8XjrcLsoZzhHTj6yBMILGvFXvrH4D5LgN2lX7B9Sj2r-",
         "custom": "",
         "domainhidden": "general",
         "srclanghidden": "en",
-        "destlanghidden": "zh-TW",
+        "destlanghidden": "hi",
         "basemodelhidden": "ar-en",
         "customhidden": "",
         "filetype": "forcedglossary",
@@ -223,8 +223,8 @@
         "topic": "",
         "payload": "Hello Node Red",
         "payloadType": "str",
-        "x": 360,
-        "y": 520,
+        "x": 280,
+        "y": 580,
         "wires": [
             [
                 "1bdded09370836d8"
@@ -244,8 +244,18 @@
         "tls": true,
         "name": "patelkushal682@gmail.com",
         "dname": "",
-        "x": 780,
-        "y": 560,
+        "x": 620,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "2cfcbcf0e182ea2c",
+        "type": "comment",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "info": "try youself to send email to your email id,\njust insert your email id into send id only \nDo not change userid and password",
+        "x": 280,
+        "y": 520,
         "wires": []
     }
 ]
