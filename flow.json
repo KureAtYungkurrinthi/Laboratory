@@ -42,8 +42,8 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 440,
-        "y": 280,
+        "x": 380,
+        "y": 240,
         "wires": [
             [
                 "60cd4a6a6e24b04d"
@@ -54,7 +54,7 @@
         "id": "60cd4a6a6e24b04d",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "debug 1",
+        "name": "check nlu result",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -63,8 +63,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 280,
+        "x": 690,
+        "y": 200,
         "wires": []
     },
     {
@@ -88,11 +88,12 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 390,
-        "y": 380,
+        "x": 330,
+        "y": 300,
         "wires": [
             [
-                "b172e12d3b89792c"
+                "b172e12d3b89792c",
+                "715af9512c547e42"
             ]
         ]
     },
@@ -100,7 +101,7 @@
         "id": "b172e12d3b89792c",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "debug 2",
+        "name": "check translator result",
         "active": true,
         "tosidebar": true,
         "console": true,
@@ -109,8 +110,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 380,
+        "x": 690,
+        "y": 300,
         "wires": []
     },
     {
@@ -134,41 +135,10 @@
         "topic": "",
         "payload": "Harbour town Adelaide has large variety of branded shops with range of discounts. You can find a parking space easily. If you are coming by bus from the city you can catch the free shuttle or J1, the bus will stop inside the premises which is convenient. There are places to grab a bite and there is a big play area for kids. There are seating areas every few meters for you take a break from all the shopping. Toilets are very clean and there are baby changing rooms as well.",
         "payloadType": "str",
-        "x": 170,
-        "y": 320,
+        "x": 110,
+        "y": 120,
         "wires": [
-            [
-                "88b4181fcd4a9d1b",
-                "a98ce99f0bdc684a"
-            ]
-        ]
-    },
-    {
-        "id": "7e02ddd6d130feeb",
-        "type": "e-mail in",
-        "z": "a1856de285adc81c",
-        "name": "imap",
-        "protocol": "IMAP",
-        "server": "imap.gmail.com",
-        "useSSL": true,
-        "autotls": "never",
-        "port": "993",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "box": "INBOX",
-        "disposition": "Read",
-        "criteria": "ALL",
-        "repeat": "300",
-        "fetch": "auto",
-        "inputs": 0,
-        "x": 330,
-        "y": 100,
-        "wires": [
-            [
-                "ac9d2dd9788b1881",
-                "905be7d6700d62c5"
-            ]
+            []
         ]
     },
     {
@@ -184,8 +154,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 60,
+        "x": 300,
+        "y": 120,
         "wires": []
     },
     {
@@ -197,8 +167,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 170,
-        "y": 140,
+        "x": 130,
+        "y": 60,
         "wires": [
             []
         ]
@@ -253,19 +223,84 @@
         "id": "ac9d2dd9788b1881",
         "type": "function",
         "z": "a1856de285adc81c",
-        "name": "saveEmailToPayload",
-        "func": "// Get the emails\nconsole.debug(\"Emails:\" + msg);\nvar email = {\n    topic: msg.topic,\n    payload: msg.payload,\n    html: msg.html,\n    from: msg.from,\n    date: msg.date,\n    header: msg.header,\n    attachments: msg.attachments\n};\nmsg.payload = email;\nconsole.debug(email);\nreturn msg;",
+        "name": "convertEmailToString",
+        "func": "// Get the emails\nconsole.debug(\"Emails:\" + msg);\nvar email = {\n    topic: msg.topic,\n    payload: msg.payload,\n    html: msg.html,\n    from: msg.from,\n    date: msg.date,\n    header: msg.header,\n    attachments: msg.attachments\n};\n\n// Convert email object to string\nmsg.payload = JSON.stringify(email);\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "// Code added here will be run once\n// whenever the node is started.\nconsole.debug(\"saveEmailToPayload starting!\");\n",
         "finalize": "// Code added here will be run when the\n// node is being stopped or re-deployed.\nconsole.debug(\"saveEmailToPayload stoped!\");\n",
         "libs": [],
-        "x": 640,
-        "y": 140,
+        "x": 320,
+        "y": 180,
         "wires": [
             [
-                "88b4181fcd4a9d1b"
+                "88b4181fcd4a9d1b",
+                "a98ce99f0bdc684a"
             ]
         ]
+    },
+    {
+        "id": "7e02ddd6d130feeb",
+        "type": "e-mail in",
+        "z": "a1856de285adc81c",
+        "name": "imap",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "ALL",
+        "repeat": "300",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "ac9d2dd9788b1881",
+                "905be7d6700d62c5"
+            ]
+        ]
+    },
+    {
+        "id": "715af9512c547e42",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "convertProcessedStrToJsonObj",
+        "func": "msg.payload = JSON.parse(msg.payload);\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "0b8e73c112909bde"
+            ]
+        ]
+    },
+    {
+        "id": "0b8e73c112909bde",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "check processed result",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 360,
+        "wires": []
     }
 ]
