@@ -160,8 +160,8 @@
         "disposition": "Read",
         "criteria": "UNSEEN",
         "repeat": "300",
-        "fetch": "auto",
-        "inputs": 0,
+        "fetch": "trigger",
+        "inputs": 1,
         "x": 250,
         "y": 120,
         "wires": [
