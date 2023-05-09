@@ -549,7 +549,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1520,
+        "x": 1540,
         "y": 220,
         "wires": [
             [
@@ -562,7 +562,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "getSubject",
-        "func": "msg.topic = \"Subject\"\nmsg.payload = msg.payload.subject\nreturn msg;",
+        "func": "msg.topic = \"subject\"\nmsg.payload = msg.payload.subject\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -581,7 +581,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "getSnippet",
-        "func": "msg.topic = \"Snippet\"\nmsg.payload = msg.payload.snippet\nreturn msg;",
+        "func": "msg.topic = \"snippet\"\nmsg.payload = msg.payload.snippet\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
