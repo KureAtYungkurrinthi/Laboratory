@@ -93,28 +93,10 @@
         "y": 520,
         "wires": [
             [
-                "b172e12d3b89792c",
                 "f0c02833731dcdc6",
                 "80f93557777c3fd0"
             ]
         ]
-    },
-    {
-        "id": "b172e12d3b89792c",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "check translator result",
-        "active": true,
-        "tosidebar": true,
-        "console": true,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1470,
-        "y": 1000,
-        "wires": []
     },
     {
         "id": "1d7cf7e02f055541",
