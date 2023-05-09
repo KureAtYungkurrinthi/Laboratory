@@ -248,7 +248,8 @@
         "y": 720,
         "wires": [
             [
-                "51de12f8cefcffbd"
+                "51de12f8cefcffbd",
+                "675cf8ba76568019"
             ]
         ]
     },
@@ -415,7 +416,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.payload = {\n    before: originalPayload,\n    after: processedPayload,\n    feature: msg.features\n};\nreturn msg;",
+        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n\nmsg.payload = originalPayload;\nmsg.payload.result = processedPayload;\nmsg.payload.features = msg.features;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -443,8 +444,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 620,
+        "x": 930,
+        "y": 640,
         "wires": []
     },
     {
@@ -458,12 +459,11 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 880,
-        "y": 560,
+        "x": 900,
+        "y": 600,
         "wires": [
             [
-                "88b4181fcd4a9d1b",
-                "675cf8ba76568019"
+                "88b4181fcd4a9d1b"
             ]
         ]
     }
