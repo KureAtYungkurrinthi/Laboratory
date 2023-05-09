@@ -42,8 +42,8 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1160,
-        "y": 540,
+        "x": 1280,
+        "y": 480,
         "wires": [
             [
                 "60cd4a6a6e24b04d",
@@ -64,8 +64,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1430,
-        "y": 540,
+        "x": 1410,
+        "y": 480,
         "wires": []
     },
     {
@@ -89,8 +89,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1110,
-        "y": 660,
+        "x": 1210,
+        "y": 520,
         "wires": [
             [
                 "b172e12d3b89792c",
@@ -250,8 +250,7 @@
         "wires": [
             [
                 "675cf8ba76568019",
-                "51de12f8cefcffbd",
-                "8fcea387e25775c0"
+                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -461,7 +460,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 900,
+        "x": 840,
         "y": 540,
         "wires": [
             [
@@ -507,25 +506,7 @@
         "y": 480,
         "wires": [
             [
-                "88b4181fcd4a9d1b"
-            ]
-        ]
-    },
-    {
-        "id": "8fcea387e25775c0",
-        "type": "function",
-        "z": "a1856de285adc81c",
-        "name": "backupBeforeProcess",
-        "func": "msg.beforePayload = msg.payload\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1060,
-        "y": 740,
-        "wires": [
-            [
+                "88b4181fcd4a9d1b",
                 "a98ce99f0bdc684a"
             ]
         ]
@@ -551,7 +532,7 @@
         "reduceInitType": "",
         "reduceFixup": "",
         "x": 1090,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "80f93557777c3fd0"
