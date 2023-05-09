@@ -47,7 +47,7 @@
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "6bc14e9d58e7e285"
+                "80f93557777c3fd0"
             ]
         ]
     },
@@ -244,8 +244,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 730,
-        "y": 720,
+        "x": 830,
+        "y": 660,
         "wires": [
             [
                 "675cf8ba76568019",
@@ -416,7 +416,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload.result = flow.get(\"result\");\nmsg.payload.features = msg.features;\nreturn msg;",
+        "func": "msg.payload.features = msg.features;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -426,8 +426,8 @@
         "y": 700,
         "wires": [
             [
-                "75f277e4dd35be43",
-                "1b0835c685acc337"
+                "1b0835c685acc337",
+                "75f277e4dd35be43"
             ]
         ]
     },
@@ -460,65 +460,10 @@
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 580,
+        "y": 540,
         "wires": [
             [
                 "88b4181fcd4a9d1b"
-            ]
-        ]
-    },
-    {
-        "id": "6bc14e9d58e7e285",
-        "type": "change",
-        "z": "a1856de285adc81c",
-        "name": "",
-        "rules": [
-            {
-                "t": "move",
-                "p": "payload",
-                "pt": "msg",
-                "to": "result",
-                "tot": "flow"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1230,
-        "y": 600,
-        "wires": [
-            [
-                "7ae33da486dcb4f1"
-            ]
-        ]
-    },
-    {
-        "id": "7ae33da486dcb4f1",
-        "type": "change",
-        "z": "a1856de285adc81c",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "originalPayload",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1170,
-        "y": 640,
-        "wires": [
-            [
-                "80f93557777c3fd0"
             ]
         ]
     }
