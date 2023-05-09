@@ -42,7 +42,7 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1020,
+        "x": 1100,
         "y": 320,
         "wires": [
             [
@@ -64,7 +64,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1330,
+        "x": 1370,
         "y": 280,
         "wires": []
     },
@@ -506,7 +506,8 @@
         "y": 340,
         "wires": [
             [
-                "80f93557777c3fd0"
+                "80f93557777c3fd0",
+                "f39e33e9e798823c"
             ]
         ]
     },
@@ -530,7 +531,7 @@
         "to": "",
         "reg": false,
         "x": 1360,
-        "y": 440,
+        "y": 420,
         "wires": [
             [
                 "b2f0157696fb1e72"
@@ -548,8 +549,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1320,
-        "y": 400,
+        "x": 1360,
+        "y": 340,
         "wires": [
             [
                 "6a52d483948ef285"
@@ -590,8 +591,7 @@
         "y": 200,
         "wires": [
             [
-                "1a0efa7045b72291",
-                "f39e33e9e798823c"
+                "1a0efa7045b72291"
             ]
         ]
     },
@@ -692,7 +692,7 @@
         "id": "f39e33e9e798823c",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "debug 1",
+        "name": "afterDataJoin",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -701,8 +701,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 140,
+        "x": 1640,
+        "y": 160,
         "wires": []
     },
     {
@@ -716,7 +716,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
+        "x": 880,
         "y": 320,
         "wires": [
             [
