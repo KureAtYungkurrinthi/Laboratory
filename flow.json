@@ -249,7 +249,7 @@
         "wires": [
             [
                 "675cf8ba76568019",
-                "2d51b4c3ec4dc81e"
+                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -453,7 +453,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "flow.set(\"originalPayload\", msg.payload)\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -464,34 +464,6 @@
         "wires": [
             [
                 "88b4181fcd4a9d1b"
-            ]
-        ]
-    },
-    {
-        "id": "2d51b4c3ec4dc81e",
-        "type": "change",
-        "z": "a1856de285adc81c",
-        "name": "cloneMsgBeforeProcess",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "originalEmailMsg",
-                "tot": "flow",
-                "dc": true
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 890,
-        "y": 640,
-        "wires": [
-            [
-                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -530,7 +502,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "originalEmailMsg",
+                "p": "originalPayload",
                 "pt": "flow",
                 "to": "payload",
                 "tot": "msg",
