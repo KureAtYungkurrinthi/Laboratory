@@ -42,12 +42,12 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1160,
-        "y": 560,
+        "x": 1140,
+        "y": 540,
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "80f93557777c3fd0"
+                "6bc14e9d58e7e285"
             ]
         ]
     },
@@ -238,7 +238,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "convertDateFormat",
-        "func": "msg.payload.date = new Date(msg.payload.date * 1000).toLocaleString();\nflow.set(\"originalEmailMsg\", msg)\nreturn msg;",
+        "func": "msg.payload.date = new Date(msg.payload.date * 1000).toLocaleString();\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -248,8 +248,8 @@
         "y": 720,
         "wires": [
             [
-                "51de12f8cefcffbd",
-                "675cf8ba76568019"
+                "675cf8ba76568019",
+                "2d51b4c3ec4dc81e"
             ]
         ]
     },
@@ -407,7 +407,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1360,
+        "x": 1380,
         "y": 680,
         "wires": []
     },
@@ -416,14 +416,14 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n\nmsg.payload = originalPayload;\nmsg.payload.result = processedPayload;\nmsg.payload.features = msg.features;\nreturn msg;",
+        "func": "msg.payload.result = msg.result;\nmsg.payload.features = msg.features;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 1120,
-        "y": 680,
+        "y": 700,
         "wires": [
             [
                 "75f277e4dd35be43",
@@ -444,8 +444,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 640,
+        "x": 790,
+        "y": 780,
         "wires": []
     },
     {
@@ -453,17 +453,99 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "\n// Create Email Contant\nvar emailContant = {\n    topic: msg.payload.subject,\n    payload: msg.payload.snippet,   \n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
         "x": 900,
-        "y": 600,
+        "y": 580,
         "wires": [
             [
                 "88b4181fcd4a9d1b"
+            ]
+        ]
+    },
+    {
+        "id": "2d51b4c3ec4dc81e",
+        "type": "change",
+        "z": "a1856de285adc81c",
+        "name": "cloneMsgBeforeProcess",
+        "rules": [
+            {
+                "t": "set",
+                "p": "originalEmailMsg",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg",
+                "dc": true
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 890,
+        "y": 640,
+        "wires": [
+            [
+                "51de12f8cefcffbd"
+            ]
+        ]
+    },
+    {
+        "id": "6bc14e9d58e7e285",
+        "type": "change",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "result",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 600,
+        "wires": [
+            [
+                "7ae33da486dcb4f1"
+            ]
+        ]
+    },
+    {
+        "id": "7ae33da486dcb4f1",
+        "type": "change",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "originalEmailMsg",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1170,
+        "y": 640,
+        "wires": [
+            [
+                "80f93557777c3fd0"
             ]
         ]
     }
