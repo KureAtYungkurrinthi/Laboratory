@@ -47,7 +47,7 @@
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "80f93557777c3fd0"
+                "d0d731c5f537c1c1"
             ]
         ]
     },
@@ -64,7 +64,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1410,
+        "x": 1430,
         "y": 540,
         "wires": []
     },
@@ -76,24 +76,25 @@
         "action": "translate",
         "basemodel": "ar-en",
         "domain": "general",
-        "srclang": "en",
-        "destlang": "zh-TW",
+        "srclang": "zh-TW",
+        "destlang": "en",
         "apikey": "8XjrcLsoZzhHTj6yBMILGvFXvrH4D5LgN2lX7B9Sj2r-",
         "custom": "",
         "domainhidden": "general",
-        "srclanghidden": "en",
-        "destlanghidden": "zh-TW",
+        "srclanghidden": "zh-TW",
+        "destlanghidden": "en",
         "basemodelhidden": "ar-en",
         "customhidden": "",
         "filetype": "forcedglossary",
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1470,
-        "y": 940,
+        "x": 1110,
+        "y": 660,
         "wires": [
             [
-                "b172e12d3b89792c"
+                "b172e12d3b89792c",
+                "d0d731c5f537c1c1"
             ]
         ]
     },
@@ -110,8 +111,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1450,
-        "y": 920,
+        "x": 1470,
+        "y": 1000,
         "wires": []
     },
     {
@@ -249,7 +250,8 @@
         "wires": [
             [
                 "675cf8ba76568019",
-                "51de12f8cefcffbd"
+                "51de12f8cefcffbd",
+                "8fcea387e25775c0"
             ]
         ]
     },
@@ -269,7 +271,7 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1270,
+        "x": 1330,
         "y": 700,
         "wires": [
             [
@@ -407,8 +409,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1420,
-        "y": 620,
+        "x": 1480,
+        "y": 600,
         "wires": []
     },
     {
@@ -416,14 +418,14 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nreturn msg;",
+        "func": "msg.translatedMsg = msg.payload;\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedMsg = msg.translatedMsg;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1120,
-        "y": 640,
+        "x": 1240,
+        "y": 600,
         "wires": [
             [
                 "1b0835c685acc337",
@@ -493,7 +495,7 @@
         "timeout": "2",
         "timeoutUnits": "seconds",
         "rate": "1",
-        "nbRateUnits": "1",
+        "nbRateUnits": "0.5",
         "rateUnits": "second",
         "randomFirst": "4",
         "randomLast": "8",
@@ -506,6 +508,53 @@
         "wires": [
             [
                 "88b4181fcd4a9d1b"
+            ]
+        ]
+    },
+    {
+        "id": "8fcea387e25775c0",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "backupBeforeProcess",
+        "func": "msg.beforePayload = msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 740,
+        "wires": [
+            [
+                "a98ce99f0bdc684a"
+            ]
+        ]
+    },
+    {
+        "id": "d0d731c5f537c1c1",
+        "type": "join",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1090,
+        "y": 600,
+        "wires": [
+            [
+                "80f93557777c3fd0"
             ]
         ]
     }
