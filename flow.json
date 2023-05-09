@@ -395,8 +395,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1500,
-        "y": 760,
+        "x": 1440,
+        "y": 680,
         "wires": []
     },
     {
@@ -404,7 +404,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.translation;\nmsg.parts = msg.originalParts;\nreturn msg;",
+        "func": "\nvar translateResult = JSON.parse(msg.payload.translate) ;\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = translateResult;\nmsg.parts = msg.originalParts;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -564,8 +564,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1380,
-        "y": 520,
+        "x": 1360,
+        "y": 540,
         "wires": [
             [
                 "6a52d483948ef285"
