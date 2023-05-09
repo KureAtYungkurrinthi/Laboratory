@@ -42,11 +42,12 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 880,
-        "y": 1180,
+        "x": 820,
+        "y": 1160,
         "wires": [
             [
-                "ba642fe0bc8b060d"
+                "ba642fe0bc8b060d",
+                "60cd4a6a6e24b04d"
             ]
         ]
     },
@@ -71,8 +72,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 850,
-        "y": 1120,
+        "x": 790,
+        "y": 1100,
         "wires": [
             [
                 "0b92e83ff9e82315"
@@ -238,8 +239,8 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1610,
-        "y": 900,
+        "x": 1730,
+        "y": 840,
         "wires": [
             [
                 "73ad1e12c9c44ff4"
@@ -257,11 +258,12 @@
         "syntax": "mustache",
         "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Date</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Subject</th>\n       <th>Snippet</th>\n       <th>Subject(Translated)</th>\n       <th>Subject(Snippet)</th>\n       <th>Feature</th>\n       <th>Score</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{date}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{subject}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   <td>\n   {{translatedSnippet.subject}}\n   </td>\n   <td>\n   {{translatedSnippet.snippet}}\n   </td>\n   <td>\n   {{features.categories.0.label}}\n   </td>  \n   <td>\n   {{features.categories.0.score}}\n   </td>\n\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
         "output": "str",
-        "x": 1620,
-        "y": 680,
+        "x": 1860,
+        "y": 760,
         "wires": [
             [
-                "dd3b9427027ce47b"
+                "dd3b9427027ce47b",
+                "4bf6e6d943e2a839"
             ]
         ]
     },
@@ -272,7 +274,7 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1750,
+        "x": 2070,
         "y": 680,
         "wires": []
     },
@@ -319,7 +321,7 @@
         "y": 680,
         "wires": [
             [
-                "73ad1e12c9c44ff4"
+                "9e311bdab8cb8b7d"
             ],
             [
                 "f8ad8ac83a2e2e71"
@@ -337,11 +339,12 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1540,
-        "y": 1000,
+        "x": 1660,
+        "y": 1160,
         "wires": [
             [
-                "75f277e4dd35be43"
+                "75f277e4dd35be43",
+                "1b0835c685acc337"
             ]
         ]
     },
@@ -356,8 +359,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 540,
-        "y": 940,
+        "x": 700,
+        "y": 920,
         "wires": [
             [
                 "deb544e5c4cc4de6"
@@ -381,8 +384,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 730,
-        "y": 940,
+        "x": 870,
+        "y": 920,
         "wires": [
             [
                 "6c993d439a83e59c",
@@ -411,11 +414,12 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1470,
-        "y": 1120,
+        "x": 1490,
+        "y": 1160,
         "wires": [
             [
-                "80f93557777c3fd0"
+                "80f93557777c3fd0",
+                "f39e33e9e798823c"
             ]
         ]
     },
@@ -438,7 +442,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1300,
+        "x": 1280,
         "y": 1180,
         "wires": [
             [
@@ -457,7 +461,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1120,
+        "x": 1080,
         "y": 1180,
         "wires": [
             [
@@ -476,7 +480,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
+        "x": 1240,
         "y": 1080,
         "wires": [
             [
@@ -495,8 +499,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1060,
+        "x": 610,
+        "y": 1040,
         "wires": [
             [
                 "1a0efa7045b72291"
@@ -514,8 +518,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 670,
-        "y": 1120,
+        "x": 610,
+        "y": 1100,
         "wires": [
             [
                 "a98ce99f0bdc684a"
@@ -543,8 +547,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 850,
-        "y": 1060,
+        "x": 790,
+        "y": 1040,
         "wires": [
             [
                 "0b92e83ff9e82315"
@@ -571,7 +575,7 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1030,
+        "x": 1070,
         "y": 1080,
         "wires": [
             [
@@ -592,8 +596,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 750,
-        "y": 840,
+        "x": 490,
+        "y": 1240,
         "wires": []
     },
     {
@@ -607,8 +611,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 660,
-        "y": 1180,
+        "x": 600,
+        "y": 1160,
         "wires": [
             [
                 "88b4181fcd4a9d1b"
@@ -632,11 +636,98 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 510,
-        "y": 1060,
+        "x": 430,
+        "y": 1040,
         "wires": [
             [
                 "4725f68a6b9adab4"
+            ]
+        ]
+    },
+    {
+        "id": "4bf6e6d943e2a839",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "outputTemplate",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 2040,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "1b0835c685acc337",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "checkCombine",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "f39e33e9e798823c",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "afterDataJoin",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "60cd4a6a6e24b04d",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "check nlu result",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "9e311bdab8cb8b7d",
+        "type": "template",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "You got no email : {{payload}} !",
+        "output": "str",
+        "x": 1720,
+        "y": 680,
+        "wires": [
+            [
+                "dd3b9427027ce47b"
             ]
         ]
     }
