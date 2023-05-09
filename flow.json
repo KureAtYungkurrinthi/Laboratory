@@ -115,52 +115,6 @@
         "wires": []
     },
     {
-        "id": "3449f2731d0d0a75",
-        "type": "inject",
-        "z": "a1856de285adc81c",
-        "name": "Node-red",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "Hello Node Red",
-        "payloadType": "str",
-        "x": 360,
-        "y": 560,
-        "wires": [
-            [
-                "1bdded09370836d8"
-            ]
-        ]
-    },
-    {
-        "id": "1bdded09370836d8",
-        "type": "e-mail",
-        "z": "a1856de285adc81c",
-        "server": "smtp.gmail.com",
-        "port": "465",
-        "authtype": "BASIC",
-        "saslformat": true,
-        "token": "oauth2Response.access_token",
-        "secure": true,
-        "tls": true,
-        "name": "patelkushal682@gmail.com",
-        "dname": "",
-        "x": 780,
-        "y": 600,
-        "wires": []
-    },
-    {
         "id": "ac9d2dd9788b1881",
         "type": "function",
         "z": "a1856de285adc81c",
@@ -199,11 +153,9 @@
         "fetch": "trigger",
         "inputs": 1,
         "x": 150,
-        "y": 120,
+        "y": 80,
         "wires": [
-            [
-                "ac9d2dd9788b1881"
-            ]
+            []
         ]
     },
     {
@@ -283,8 +235,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 640,
-        "y": 200,
+        "x": 620,
+        "y": 180,
         "wires": [
             [
                 "8faf1301c8b9ae42"
@@ -329,5 +281,214 @@
         "x": 850,
         "y": 200,
         "wires": []
+    },
+    {
+        "id": "1d7cf7e02f055541",
+        "type": "http in",
+        "z": "a1856de285adc81c",
+        "name": "GetEmail",
+        "url": "getEmails/:limit",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 340,
+        "y": 560,
+        "wires": [
+            [
+                "1c821decd0cab5ce"
+            ]
+        ]
+    },
+    {
+        "id": "1c821decd0cab5ce",
+        "type": "change",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "req.params.limit",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 540,
+        "wires": [
+            [
+                "9626f8d6b8b70935"
+            ]
+        ]
+    },
+    {
+        "id": "9626f8d6b8b70935",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "defaultLimit",
+        "func": "if (msg.payload == null) {\n    msg.payload = \"5\";\n}\nmsg.payload = Number(msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 580,
+        "wires": [
+            [
+                "b230d9fbcb9f5803"
+            ]
+        ]
+    },
+    {
+        "id": "b230d9fbcb9f5803",
+        "type": "http request",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.nylas.com/messages?in=inbox&limit={{{payload}}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "bearer",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "Accept",
+                "valueType": "other",
+                "valueValue": "application/json"
+            },
+            {
+                "keyType": "other",
+                "keyValue": "Content-Type",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
+        "x": 650,
+        "y": 620,
+        "wires": [
+            [
+                "f8ad8ac83a2e2e71"
+            ]
+        ]
+    },
+    {
+        "id": "f8ad8ac83a2e2e71",
+        "type": "split",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            [
+                "24a154ad01e1ea86"
+            ]
+        ]
+    },
+    {
+        "id": "24a154ad01e1ea86",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "convertDateFormat",
+        "func": "msg.payload.date = new Date(msg.payload.date * 1000).toLocaleString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 670,
+        "y": 700,
+        "wires": [
+            [
+                "75f277e4dd35be43"
+            ]
+        ]
+    },
+    {
+        "id": "75f277e4dd35be43",
+        "type": "join",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": "false",
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "x": 670,
+        "y": 740,
+        "wires": [
+            [
+                "73ad1e12c9c44ff4"
+            ]
+        ]
+    },
+    {
+        "id": "73ad1e12c9c44ff4",
+        "type": "template",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Subject</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Date</th>\n       <th>Snippet</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{subject}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{date}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
+        "output": "str",
+        "x": 660,
+        "y": 780,
+        "wires": [
+            [
+                "dd3b9427027ce47b"
+            ]
+        ]
+    },
+    {
+        "id": "dd3b9427027ce47b",
+        "type": "http response",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "e30bc83193dec4d2",
+        "type": "http in",
+        "z": "a1856de285adc81c",
+        "name": "GetEmailWithoutLimit ",
+        "url": "getEmails",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 380,
+        "y": 520,
+        "wires": [
+            [
+                "1c821decd0cab5ce"
+            ]
+        ]
     }
 ]
