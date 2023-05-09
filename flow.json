@@ -89,7 +89,7 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1210,
+        "x": 1190,
         "y": 520,
         "wires": [
             [
@@ -440,7 +440,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet.replace(/[^a-zA-Z0-9 ]/g, \"\"),\n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
