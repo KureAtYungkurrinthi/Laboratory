@@ -244,8 +244,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 830,
-        "y": 660,
+        "x": 850,
+        "y": 680,
         "wires": [
             [
                 "675cf8ba76568019",
@@ -269,7 +269,7 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1050,
+        "x": 1290,
         "y": 740,
         "wires": [
             [
@@ -416,7 +416,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload.features = msg.features;\nreturn msg;",
+        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -453,7 +453,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\n\nvar nluMsg = {\n    payload: \"\"\n};\n\nnluMsg.payload = JSON.stringify(emailContant);\nreturn nluMsg;",
+        "func": "msg.originalPayload = msg.payload;\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
