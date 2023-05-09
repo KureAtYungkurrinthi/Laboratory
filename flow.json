@@ -428,7 +428,6 @@
         "wires": [
             [
                 "88b4181fcd4a9d1b",
-                "a98ce99f0bdc684a",
                 "675cf8ba76568019"
             ]
         ]
@@ -438,7 +437,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalPayload\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.results = {\n    before: originalPayload,\n    after: processedPayload,\n    feature:msg.feature\n};\n\nmsg.payload = msg.results\nreturn msg;",
+        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.results = {\n    before: originalPayload,\n    after: processedPayload,\n    feature: msg.features\n};\n\nmsg.payload = msg.results\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
