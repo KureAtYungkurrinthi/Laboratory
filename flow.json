@@ -42,8 +42,8 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1020,
-        "y": 700,
+        "x": 1040,
+        "y": 680,
         "wires": [
             [
                 "60cd4a6a6e24b04d",
@@ -64,8 +64,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1310,
-        "y": 720,
+        "x": 1370,
+        "y": 620,
         "wires": []
     },
     {
@@ -89,8 +89,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1010,
-        "y": 760,
+        "x": 1370,
+        "y": 820,
         "wires": [
             [
                 "b172e12d3b89792c"
@@ -248,7 +248,7 @@
         "y": 720,
         "wires": [
             [
-                "75f277e4dd35be43"
+                "88b4181fcd4a9d1b"
             ]
         ]
     },
@@ -268,11 +268,11 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 870,
-        "y": 660,
+        "x": 1230,
+        "y": 940,
         "wires": [
             [
-                "88b4181fcd4a9d1b"
+                "73ad1e12c9c44ff4"
             ]
         ]
     },
@@ -395,23 +395,6 @@
         ]
     },
     {
-        "id": "675cf8ba76568019",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "debugMsg",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1110,
-        "y": 620,
-        "wires": []
-    },
-    {
         "id": "1b0835c685acc337",
         "type": "debug",
         "z": "a1856de285adc81c",
@@ -443,8 +426,8 @@
         "y": 940,
         "wires": [
             [
-                "73ad1e12c9c44ff4",
-                "1b0835c685acc337"
+                "1b0835c685acc337",
+                "75f277e4dd35be43"
             ]
         ]
     }
