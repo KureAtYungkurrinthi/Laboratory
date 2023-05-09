@@ -503,7 +503,7 @@
         "z": "a1856de285adc81c",
         "name": "",
         "mode": "custom",
-        "build": "object",
+        "build": "merged",
         "property": "payload",
         "propertyType": "msg",
         "key": "topic",
