@@ -404,7 +404,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "\nvar translateResult = JSON.parse(msg.payload.translate) ;\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = translateResult;\nmsg.parts = msg.originalParts;\nreturn msg;",
+        "func": "var translateResult = JSON.parse(msg.translation[0].translation);\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = translateResult;\nmsg.parts = msg.originalParts;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -467,7 +467,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1520,
+        "x": 1540,
         "y": 540,
         "wires": []
     },
