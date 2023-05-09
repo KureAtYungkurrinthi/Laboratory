@@ -511,13 +511,13 @@
         "joinerType": "str",
         "accumulate": true,
         "timeout": "",
-        "count": "",
+        "count": "2",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1190,
+        "x": 1230,
         "y": 680,
         "wires": [
             [
