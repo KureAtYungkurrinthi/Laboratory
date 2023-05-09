@@ -620,7 +620,7 @@
         "y": 200,
         "wires": [
             [
-                "0b92e83ff9e82315"
+                "4d2edae893f2ca8b"
             ]
         ]
     },
@@ -727,6 +727,25 @@
         "wires": [
             [
                 "4725f68a6b9adab4"
+            ]
+        ]
+    },
+    {
+        "id": "4d2edae893f2ca8b",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "function 1",
+        "func": "msg.complete = true;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1240,
+        "y": 180,
+        "wires": [
+            [
+                "0b92e83ff9e82315"
             ]
         ]
     }
