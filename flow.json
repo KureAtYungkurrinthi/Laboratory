@@ -94,7 +94,8 @@
         "wires": [
             [
                 "b172e12d3b89792c",
-                "d0d731c5f537c1c1"
+                "d0d731c5f537c1c1",
+                "f0c02833731dcdc6"
             ]
         ]
     },
@@ -472,17 +473,17 @@
         "id": "f0c02833731dcdc6",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "joinTest",
+        "name": "checkTranslateResult",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "topic",
+        "complete": "translation",
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1540,
-        "y": 680,
+        "x": 1520,
+        "y": 540,
         "wires": []
     },
     {
