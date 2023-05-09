@@ -47,7 +47,7 @@
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "6a52d483948ef285"
+                "ba642fe0bc8b060d"
             ]
         ]
     },
@@ -94,7 +94,7 @@
         "wires": [
             [
                 "f0c02833731dcdc6",
-                "b2f0157696fb1e72"
+                "36756cb6fffbb684"
             ]
         ]
     },
@@ -545,8 +545,46 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1070,
-        "y": 580,
+        "x": 1090,
+        "y": 600,
+        "wires": [
+            [
+                "b2f0157696fb1e72"
+            ]
+        ]
+    },
+    {
+        "id": "ba642fe0bc8b060d",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "function 1",
+        "func": "msg.topic = \"NLU\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1380,
+        "y": 520,
+        "wires": [
+            [
+                "6a52d483948ef285"
+            ]
+        ]
+    },
+    {
+        "id": "36756cb6fffbb684",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "function 2",
+        "func": "msg.topic = \"translate\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 720,
         "wires": [
             [
                 "b2f0157696fb1e72"
