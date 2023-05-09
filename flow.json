@@ -47,7 +47,7 @@
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "d0d731c5f537c1c1"
+                "80f93557777c3fd0"
             ]
         ]
     },
@@ -64,8 +64,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1470,
-        "y": 480,
+        "x": 1510,
+        "y": 400,
         "wires": []
     },
     {
@@ -94,8 +94,8 @@
         "wires": [
             [
                 "b172e12d3b89792c",
-                "d0d731c5f537c1c1",
-                "f0c02833731dcdc6"
+                "f0c02833731dcdc6",
+                "80f93557777c3fd0"
             ]
         ]
     },
@@ -409,7 +409,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1480,
+        "x": 1460,
         "y": 600,
         "wires": []
     },
@@ -509,34 +509,6 @@
             [
                 "88b4181fcd4a9d1b",
                 "a98ce99f0bdc684a"
-            ]
-        ]
-    },
-    {
-        "id": "d0d731c5f537c1c1",
-        "type": "join",
-        "z": "a1856de285adc81c",
-        "name": "",
-        "mode": "custom",
-        "build": "merged",
-        "property": "",
-        "propertyType": "full",
-        "key": "payload",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": true,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "num",
-        "reduceFixup": "",
-        "x": 1090,
-        "y": 580,
-        "wires": [
-            [
-                "80f93557777c3fd0"
             ]
         ]
     }
