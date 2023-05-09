@@ -477,7 +477,7 @@
         "build": "object",
         "property": "payload",
         "propertyType": "msg",
-        "key": "payload",
+        "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
         "accumulate": true,
@@ -492,8 +492,26 @@
         "y": 680,
         "wires": [
             [
-                "75f277e4dd35be43"
+                "75f277e4dd35be43",
+                "f0c02833731dcdc6"
             ]
         ]
+    },
+    {
+        "id": "f0c02833731dcdc6",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "joinTest",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1400,
+        "y": 760,
+        "wires": []
     }
 ]
