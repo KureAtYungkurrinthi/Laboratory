@@ -42,8 +42,8 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1280,
-        "y": 480,
+        "x": 1200,
+        "y": 340,
         "wires": [
             [
                 "60cd4a6a6e24b04d",
@@ -64,8 +64,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1530,
-        "y": 380,
+        "x": 1270,
+        "y": 320,
         "wires": []
     },
     {
@@ -89,8 +89,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1190,
-        "y": 520,
+        "x": 1030,
+        "y": 440,
         "wires": [
             [
                 "f0c02833731dcdc6",
@@ -257,7 +257,7 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1510,
+        "x": 1350,
         "y": 620,
         "wires": [
             [
@@ -276,8 +276,8 @@
         "syntax": "mustache",
         "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Date</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Subject</th>\n       <th>Snippet</th>\n       <th>Subject(Translated)</th>\n       <th>Subject(Snippet)</th>\n       <th>Feature</th>\n       <th>Score</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{date}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{subject}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   <td>\n   {{translatedSnippet.subject}}\n   </td>\n   <td>\n   {{translatedSnippet.snippet}}\n   </td>\n   <td>\n   {{features.categories.0.label}}\n   </td>  \n   <td>\n   {{features.categories.0.score}}\n   </td>\n\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
         "output": "str",
-        "x": 1040,
-        "y": 840,
+        "x": 980,
+        "y": 740,
         "wires": [
             [
                 "dd3b9427027ce47b",
@@ -292,8 +292,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 1230,
-        "y": 900,
+        "x": 930,
+        "y": 820,
         "wires": []
     },
     {
@@ -326,8 +326,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1220,
-        "y": 800,
+        "x": 1540,
+        "y": 620,
         "wires": []
     },
     {
@@ -374,8 +374,8 @@
         "syntax": "mustache",
         "template": "You got no email : {{payload}} !",
         "output": "str",
-        "x": 620,
-        "y": 840,
+        "x": 680,
+        "y": 780,
         "wires": [
             [
                 "dd3b9427027ce47b"
@@ -395,8 +395,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1440,
-        "y": 740,
+        "x": 1560,
+        "y": 520,
         "wires": []
     },
     {
@@ -411,7 +411,7 @@
         "finalize": "",
         "libs": [],
         "x": 1340,
-        "y": 620,
+        "y": 560,
         "wires": [
             [
                 "75f277e4dd35be43",
@@ -432,8 +432,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 790,
-        "y": 780,
+        "x": 850,
+        "y": 640,
         "wires": []
     },
     {
@@ -447,8 +447,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
-        "y": 540,
+        "x": 800,
+        "y": 400,
         "wires": [
             [
                 "deb544e5c4cc4de6"
@@ -468,8 +468,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1540,
-        "y": 540,
+        "x": 1080,
+        "y": 400,
         "wires": []
     },
     {
@@ -489,8 +489,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1010,
-        "y": 480,
+        "x": 950,
+        "y": 340,
         "wires": [
             [
                 "88b4181fcd4a9d1b",
@@ -510,16 +510,16 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": true,
+        "accumulate": false,
         "timeout": "",
-        "count": "2",
+        "count": "",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1230,
-        "y": 680,
+        "x": 1390,
+        "y": 500,
         "wires": [
             [
                 "80f93557777c3fd0"
@@ -545,8 +545,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1080,
-        "y": 600,
+        "x": 1360,
+        "y": 440,
         "wires": [
             [
                 "b2f0157696fb1e72"
@@ -557,7 +557,7 @@
         "id": "ba642fe0bc8b060d",
         "type": "function",
         "z": "a1856de285adc81c",
-        "name": "function 1",
+        "name": "setTopicForJoin",
         "func": "msg.topic = \"NLU\"\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
@@ -565,7 +565,7 @@
         "finalize": "",
         "libs": [],
         "x": 1320,
-        "y": 560,
+        "y": 400,
         "wires": [
             [
                 "6a52d483948ef285"
@@ -576,15 +576,15 @@
         "id": "36756cb6fffbb684",
         "type": "function",
         "z": "a1856de285adc81c",
-        "name": "function 2",
-        "func": "msg.topic = \"translate\"\nreturn msg;",
+        "name": "setTopicForJoin",
+        "func": "msg.topic = \"translate\"\nmsg.complete = true\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
-        "y": 720,
+        "x": 1040,
+        "y": 480,
         "wires": [
             [
                 "b2f0157696fb1e72"
