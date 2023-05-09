@@ -56,7 +56,7 @@
         "type": "debug",
         "z": "a1856de285adc81c",
         "name": "check nlu result",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -103,7 +103,7 @@
         "type": "debug",
         "z": "a1856de285adc81c",
         "name": "check translator result",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": true,
         "tostatus": false,
@@ -466,8 +466,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1180,
-        "y": 1000,
+        "x": 1280,
+        "y": 1020,
         "wires": []
     }
 ]
