@@ -42,8 +42,8 @@
         "syntax-tokens-lemma": false,
         "syntax-tokens-pos": false,
         "service-endpoint": "https://api.au-syd.natural-language-understanding.watson.cloud.ibm.com/instances/45b0a5cf-9c3f-400c-b8e2-ea5fb84dcaac",
-        "x": 1040,
-        "y": 680,
+        "x": 1160,
+        "y": 560,
         "wires": [
             [
                 "60cd4a6a6e24b04d",
@@ -64,8 +64,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1370,
-        "y": 620,
+        "x": 1410,
+        "y": 540,
         "wires": []
     },
     {
@@ -89,8 +89,8 @@
         "trainid": "",
         "lgparams2": true,
         "service-endpoint": "https://api.au-syd.language-translator.watson.cloud.ibm.com/instances/faeb5936-8fb1-4a25-a8a2-413f0c21e2e9",
-        "x": 1370,
-        "y": 820,
+        "x": 1470,
+        "y": 940,
         "wires": [
             [
                 "b172e12d3b89792c"
@@ -110,8 +110,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1350,
-        "y": 880,
+        "x": 1450,
+        "y": 920,
         "wires": []
     },
     {
@@ -248,7 +248,7 @@
         "y": 720,
         "wires": [
             [
-                "88b4181fcd4a9d1b"
+                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -268,8 +268,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1230,
-        "y": 940,
+        "x": 1030,
+        "y": 760,
         "wires": [
             [
                 "73ad1e12c9c44ff4"
@@ -287,8 +287,8 @@
         "syntax": "mustache",
         "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Subject</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Date</th>\n       <th>Snippet</th>\n       <th>Feature</th>\n       <th>Score</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{subject}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{date}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   <td>\n   {{feature.categories[0].label}}\n   </td>  <td>\n   {{feature.categories[0].score}}\n   </td>\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
         "output": "str",
-        "x": 1020,
-        "y": 1060,
+        "x": 1040,
+        "y": 840,
         "wires": [
             [
                 "dd3b9427027ce47b",
@@ -303,8 +303,8 @@
         "name": "",
         "statusCode": "",
         "headers": {},
-        "x": 850,
-        "y": 780,
+        "x": 1170,
+        "y": 900,
         "wires": []
     },
     {
@@ -337,8 +337,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 840,
-        "y": 840,
+        "x": 1220,
+        "y": 800,
         "wires": []
     },
     {
@@ -389,8 +389,7 @@
         "y": 840,
         "wires": [
             [
-                "dd3b9427027ce47b",
-                "4bf6e6d943e2a839"
+                "dd3b9427027ce47b"
             ]
         ]
     },
@@ -407,8 +406,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1320,
-        "y": 1000,
+        "x": 1360,
+        "y": 680,
         "wires": []
     },
     {
@@ -416,18 +415,55 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "// Create an object to store the before and after results\nmsg.payload = {\n    features: msg.features\n};\nreturn msg;",
+        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.payload = {\n    before: originalPayload,\n    after: processedPayload,\n    feature: msg.features\n};\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1060,
-        "y": 940,
+        "x": 1120,
+        "y": 680,
         "wires": [
             [
-                "1b0835c685acc337",
-                "75f277e4dd35be43"
+                "75f277e4dd35be43",
+                "1b0835c685acc337"
+            ]
+        ]
+    },
+    {
+        "id": "675cf8ba76568019",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debugMsg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "51de12f8cefcffbd",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "createEmailObj",
+        "func": "flow.set(\"originalEmailMsg\", msg)\n\n// Create Email Contant\nvar emailContant = {\n    topic: msg.payload.subject,\n    payload: msg.payload.snippet,\n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 560,
+        "wires": [
+            [
+                "88b4181fcd4a9d1b",
+                "675cf8ba76568019"
             ]
         ]
     }
