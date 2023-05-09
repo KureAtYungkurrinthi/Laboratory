@@ -46,7 +46,8 @@
         "y": 700,
         "wires": [
             [
-                "60cd4a6a6e24b04d"
+                "60cd4a6a6e24b04d",
+                "80f93557777c3fd0"
             ]
         ]
     },
@@ -93,7 +94,7 @@
         "wires": [
             [
                 "b172e12d3b89792c",
-                "715af9512c547e42"
+                "80f93557777c3fd0"
             ]
         ]
     },
@@ -112,42 +113,6 @@
         "statusType": "auto",
         "x": 1350,
         "y": 880,
-        "wires": []
-    },
-    {
-        "id": "715af9512c547e42",
-        "type": "function",
-        "z": "a1856de285adc81c",
-        "name": "convertProcessedStrToJsonObj",
-        "func": "msg.payload = JSON.parse(msg.payload);\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1050,
-        "y": 900,
-        "wires": [
-            [
-                "0b8e73c112909bde"
-            ]
-        ]
-    },
-    {
-        "id": "0b8e73c112909bde",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "check processed result",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1350,
-        "y": 1020,
         "wires": []
     },
     {
@@ -284,8 +249,8 @@
         "y": 700,
         "wires": [
             [
-                "75f277e4dd35be43",
-                "675cf8ba76568019"
+                "675cf8ba76568019",
+                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -305,10 +270,12 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 670,
-        "y": 740,
+        "x": 1230,
+        "y": 940,
         "wires": [
-            []
+            [
+                "9e311bdab8cb8b7d"
+            ]
         ]
     },
     {
@@ -322,8 +289,8 @@
         "syntax": "mustache",
         "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Subject</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Date</th>\n       <th>Snippet</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{subject}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{date}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
         "output": "str",
-        "x": 660,
-        "y": 780,
+        "x": 1100,
+        "y": 1060,
         "wires": [
             [
                 "dd3b9427027ce47b",
@@ -398,7 +365,7 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 390,
+        "x": 450,
         "y": 780,
         "wires": [
             [
@@ -442,8 +409,47 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
+        "x": 1110,
         "y": 620,
         "wires": []
+    },
+    {
+        "id": "51de12f8cefcffbd",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "createEmailObj",
+        "func": "flow.set(\"originalEmailMsg\", msg)\n\n// Create Email Contant\nvar emailContant = {\n    topic: msg.payload.subject,\n    payload: msg.payload.snippet,\n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 840,
+        "y": 580,
+        "wires": [
+            [
+                "88b4181fcd4a9d1b",
+                "a98ce99f0bdc684a"
+            ]
+        ]
+    },
+    {
+        "id": "80f93557777c3fd0",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "combineResult",
+        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalPayload\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.results = {\n    before: originalPayload,\n    after: processedPayload,\n    feature:msg.feature\n};\n\nmsg.payload = msg.results\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 940,
+        "wires": [
+            [
+                "75f277e4dd35be43"
+            ]
+        ]
     }
 ]
