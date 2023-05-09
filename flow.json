@@ -481,7 +481,7 @@
         "timeout": "2",
         "timeoutUnits": "seconds",
         "rate": "1",
-        "nbRateUnits": "0.5",
+        "nbRateUnits": "1",
         "rateUnits": "second",
         "randomFirst": "4",
         "randomLast": "8",
