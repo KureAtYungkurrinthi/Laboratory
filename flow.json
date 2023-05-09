@@ -93,7 +93,6 @@
         "y": 260,
         "wires": [
             [
-                "f0c02833731dcdc6",
                 "0b92e83ff9e82315"
             ]
         ]
@@ -430,30 +429,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 800,
-        "y": 400,
+        "x": 680,
+        "y": 380,
         "wires": [
             [
                 "deb544e5c4cc4de6"
             ]
         ]
-    },
-    {
-        "id": "f0c02833731dcdc6",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "checkTranslateResult",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "translation",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1080,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "deb544e5c4cc4de6",
@@ -472,8 +454,8 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 630,
-        "y": 240,
+        "x": 670,
+        "y": 260,
         "wires": [
             [
                 "52a79e17999144ed",
