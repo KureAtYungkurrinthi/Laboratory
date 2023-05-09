@@ -232,7 +232,8 @@
         "y": 680,
         "wires": [
             [
-                "51de12f8cefcffbd"
+                "51de12f8cefcffbd",
+                "675cf8ba76568019"
             ]
         ]
     },
@@ -351,8 +352,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 550,
-        "y": 720,
+        "x": 450,
+        "y": 780,
         "wires": [
             [
                 "f8ad8ac83a2e2e71"
@@ -373,8 +374,8 @@
         "syntax": "mustache",
         "template": "You got no email : {{payload}} !",
         "output": "str",
-        "x": 700,
-        "y": 760,
+        "x": 680,
+        "y": 780,
         "wires": [
             [
                 "dd3b9427027ce47b"
@@ -475,7 +476,9 @@
         "y": 260,
         "wires": [
             [
-                "6c993d439a83e59c"
+                "6c993d439a83e59c",
+                "4725f68a6b9adab4",
+                "88b4181fcd4a9d1b"
             ]
         ]
     },
@@ -577,7 +580,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "getSubject",
-        "func": "msg.payload = msg.payload.subject;\nmsg.topic = \"Subject\";\nreturn msg;",
+        "func": "msg.topic = \"Subject\"\nmsg.payload = msg.payload.subject\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -587,7 +590,8 @@
         "y": 200,
         "wires": [
             [
-                "1a0efa7045b72291"
+                "1a0efa7045b72291",
+                "f39e33e9e798823c"
             ]
         ]
     },
@@ -606,8 +610,7 @@
         "y": 260,
         "wires": [
             [
-                "a98ce99f0bdc684a",
-                "6fd90ec8ddaddc7e"
+                "a98ce99f0bdc684a"
             ]
         ]
     },
@@ -669,7 +672,24 @@
         ]
     },
     {
-        "id": "6fd90ec8ddaddc7e",
+        "id": "675cf8ba76568019",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debugMsg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "f39e33e9e798823c",
         "type": "debug",
         "z": "a1856de285adc81c",
         "name": "debug 1",
