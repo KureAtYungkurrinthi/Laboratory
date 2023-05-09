@@ -549,7 +549,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1480,
+        "x": 1520,
         "y": 220,
         "wires": [
             [
@@ -636,15 +636,15 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": true,
+        "accumulate": false,
         "timeout": "",
-        "count": "",
+        "count": "2",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1310,
+        "x": 1390,
         "y": 220,
         "wires": [
             [
