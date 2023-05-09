@@ -249,7 +249,8 @@
         "wires": [
             [
                 "675cf8ba76568019",
-                "51de12f8cefcffbd"
+                "51de12f8cefcffbd",
+                "3035285024871177"
             ]
         ]
     },
@@ -269,8 +270,8 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1030,
-        "y": 760,
+        "x": 1050,
+        "y": 740,
         "wires": [
             [
                 "73ad1e12c9c44ff4"
@@ -427,7 +428,7 @@
         "wires": [
             [
                 "1b0835c685acc337",
-                "75f277e4dd35be43"
+                "3035285024871177"
             ]
         ]
     },
@@ -471,7 +472,7 @@
         "id": "3035285024871177",
         "type": "join",
         "z": "a1856de285adc81c",
-        "name": "",
+        "name": "combine2Result",
         "mode": "custom",
         "build": "object",
         "property": "payload",
@@ -487,10 +488,12 @@
         "reduceInit": "",
         "reduceInitType": "",
         "reduceFixup": "",
-        "x": 1250,
-        "y": 720,
+        "x": 1320,
+        "y": 680,
         "wires": [
-            []
+            [
+                "75f277e4dd35be43"
+            ]
         ]
     }
 ]
