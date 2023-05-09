@@ -64,8 +64,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1510,
-        "y": 400,
+        "x": 1530,
+        "y": 380,
         "wires": []
     },
     {
@@ -534,9 +534,9 @@
         "rules": [
             {
                 "t": "set",
-                "p": "features",
+                "p": "payload",
                 "pt": "msg",
-                "to": "payload",
+                "to": "features",
                 "tot": "msg"
             }
         ],
@@ -545,7 +545,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1090,
+        "x": 1080,
         "y": 600,
         "wires": [
             [
