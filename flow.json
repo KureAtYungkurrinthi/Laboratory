@@ -225,8 +225,8 @@
         "arraySpltType": "len",
         "stream": false,
         "addname": "",
-        "x": 650,
-        "y": 660,
+        "x": 690,
+        "y": 700,
         "wires": [
             [
                 "24a154ad01e1ea86"
@@ -489,11 +489,11 @@
         "type": "delay",
         "z": "a1856de285adc81c",
         "name": "",
-        "pauseType": "random",
+        "pauseType": "rate",
         "timeout": "2",
         "timeoutUnits": "seconds",
         "rate": "1",
-        "nbRateUnits": "1",
+        "nbRateUnits": "3",
         "rateUnits": "second",
         "randomFirst": "4",
         "randomLast": "8",
@@ -501,7 +501,7 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 1000,
+        "x": 1020,
         "y": 480,
         "wires": [
             [
