@@ -424,7 +424,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n\nvar cleanedSnippet = msg.payload.snippet.replace(/[\\u3000-\\u303F\\uFF01-\\uFF0F\\uFF1A-\\uFF20\\uFF3B-\\uFF40\\uFFE0-\\uFFE5]/g, \"\");\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: cleanedSnippet\n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n\nvar cleanedSnippet = msg.payload.snippet.replace(/[\\u3000-\\u303F\\uFF01-\\uFF0F\\uFF1A-\\uFF20\\uFF3B-\\uFF40\\uFFE0-\\uFFE5]/g, \"\");\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: cleanedSnippet\n};\n\nmsg.payload = emailContant;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -472,13 +472,13 @@
         "drop": false,
         "allowrate": false,
         "outputs": 1,
-        "x": 690,
-        "y": 260,
+        "x": 630,
+        "y": 240,
         "wires": [
             [
+                "52a79e17999144ed",
                 "6c993d439a83e59c",
-                "4725f68a6b9adab4",
-                "88b4181fcd4a9d1b"
+                "4725f68a6b9adab4"
             ]
         ]
     },
@@ -704,5 +704,24 @@
         "x": 900,
         "y": 140,
         "wires": []
+    },
+    {
+        "id": "52a79e17999144ed",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "json2Str",
+        "func": "msg.payload = JSON.stringify(msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 320,
+        "wires": [
+            [
+                "88b4181fcd4a9d1b"
+            ]
+        ]
     }
 ]
