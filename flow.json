@@ -386,7 +386,7 @@
         "id": "1b0835c685acc337",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "checkFirstJoin",
+        "name": "checkCombine",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -396,7 +396,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 1440,
-        "y": 680,
+        "y": 740,
         "wires": []
     },
     {
@@ -414,7 +414,8 @@
         "y": 620,
         "wires": [
             [
-                "75f277e4dd35be43"
+                "75f277e4dd35be43",
+                "1b0835c685acc337"
             ]
         ]
     },
@@ -521,8 +522,7 @@
         "y": 680,
         "wires": [
             [
-                "80f93557777c3fd0",
-                "1b0835c685acc337"
+                "80f93557777c3fd0"
             ]
         ]
     },
