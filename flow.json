@@ -418,7 +418,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.translatedSnippet = msg.payload;\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.translatedSnippet;\nreturn msg;",
+        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.translation;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
