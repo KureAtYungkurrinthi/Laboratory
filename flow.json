@@ -93,8 +93,7 @@
         "y": 760,
         "wires": [
             [
-                "b172e12d3b89792c",
-                "80f93557777c3fd0"
+                "b172e12d3b89792c"
             ]
         ]
     },
@@ -249,7 +248,7 @@
         "y": 720,
         "wires": [
             [
-                "51de12f8cefcffbd"
+                "75f277e4dd35be43"
             ]
         ]
     },
@@ -269,11 +268,11 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1230,
-        "y": 940,
+        "x": 870,
+        "y": 660,
         "wires": [
             [
-                "73ad1e12c9c44ff4"
+                "88b4181fcd4a9d1b"
             ]
         ]
     },
@@ -288,7 +287,7 @@
         "syntax": "mustache",
         "template": "<html>\n   <head>\n       <script src=\"https://cdn.tailwindcss.com\"></script>\n   </head>\n<body>\n<h1 class=\"font-black\" style=\"text-align:center\">Inbox</h2>\n<table class=\"table-auto\">\n   <tr>\n       <th>Subject</th>\n       <th>From (Name)</th>\n       <th>From (Email)</th>\n       <th>Date</th>\n       <th>Snippet</th>\n       <th>Feature</th>\n       <th>Score</th>\n   </tr>\n   {{#payload}}\n   <tr>\n   <td>\n   {{subject}}\n   </td>\n   <td>\n   {{from.0.name}}\n   </td>\n   <td>\n   {{from.0.email}}\n   </td>   \n   <td>\n   {{date}}\n   </td>   \n   <td>\n   {{snippet}}\n   </td>\n   <td>\n   {{feature.categories[0].label}}\n   </td>  <td>\n   {{feature.categories[0].score}}\n   </td>\n   </tr>\n   {{/payload}}\n</table> \n</body>\n</html>",
         "output": "str",
-        "x": 780,
+        "x": 1020,
         "y": 1060,
         "wires": [
             [
@@ -413,46 +412,6 @@
         "wires": []
     },
     {
-        "id": "51de12f8cefcffbd",
-        "type": "function",
-        "z": "a1856de285adc81c",
-        "name": "createEmailObj",
-        "func": "flow.set(\"originalEmailMsg\", msg)\n\n// Create Email Contant\nvar emailContant = {\n    topic: msg.payload.subject,\n    payload: msg.payload.snippet,\n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 880,
-        "y": 560,
-        "wires": [
-            [
-                "88b4181fcd4a9d1b",
-                "675cf8ba76568019"
-            ]
-        ]
-    },
-    {
-        "id": "80f93557777c3fd0",
-        "type": "function",
-        "z": "a1856de285adc81c",
-        "name": "combineResult",
-        "func": "// Retrieve the original payload from flow context\nvar originalPayload = flow.get(\"originalEmailMsg\");  \n// Retrieve the processed payload from msg object\nvar processedPayload = msg.payload;  \n// Create an object to store the before and after results\nmsg.payload = {\n    before: originalPayload,\n    after: processedPayload,\n    feature: msg.features\n};\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1060,
-        "y": 940,
-        "wires": [
-            [
-                "75f277e4dd35be43",
-                "1b0835c685acc337"
-            ]
-        ]
-    },
-    {
         "id": "1b0835c685acc337",
         "type": "debug",
         "z": "a1856de285adc81c",
@@ -468,5 +427,25 @@
         "x": 1320,
         "y": 1000,
         "wires": []
+    },
+    {
+        "id": "80f93557777c3fd0",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "combineResult",
+        "func": "// Create an object to store the before and after results\nmsg.payload = {\n    features: msg.features\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1060,
+        "y": 940,
+        "wires": [
+            [
+                "73ad1e12c9c44ff4",
+                "1b0835c685acc337"
+            ]
+        ]
     }
 ]
