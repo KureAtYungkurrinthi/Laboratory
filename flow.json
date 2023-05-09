@@ -249,8 +249,7 @@
         "wires": [
             [
                 "675cf8ba76568019",
-                "51de12f8cefcffbd",
-                "3035285024871177"
+                "51de12f8cefcffbd"
             ]
         ]
     },
@@ -428,7 +427,7 @@
         "wires": [
             [
                 "1b0835c685acc337",
-                "3035285024871177"
+                "75f277e4dd35be43"
             ]
         ]
     },
@@ -454,7 +453,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "flow.set(\"originalPayload\", msg.payload)\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n// Convert email object to string\n\nvar nluMsg = {\n    payload: \"\"\n};\n\nnluMsg.payload = JSON.stringify(emailContant);\nreturn nluMsg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -465,35 +464,6 @@
         "wires": [
             [
                 "88b4181fcd4a9d1b"
-            ]
-        ]
-    },
-    {
-        "id": "3035285024871177",
-        "type": "join",
-        "z": "a1856de285adc81c",
-        "name": "combine2Result",
-        "mode": "custom",
-        "build": "object",
-        "property": "payload",
-        "propertyType": "msg",
-        "key": "topic",
-        "joiner": "\\n",
-        "joinerType": "str",
-        "accumulate": true,
-        "timeout": "",
-        "count": "",
-        "reduceRight": false,
-        "reduceExp": "",
-        "reduceInit": "",
-        "reduceInitType": "",
-        "reduceFixup": "",
-        "x": 1320,
-        "y": 680,
-        "wires": [
-            [
-                "75f277e4dd35be43",
-                "f0c02833731dcdc6"
             ]
         ]
     },
@@ -510,8 +480,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1400,
-        "y": 760,
+        "x": 1540,
+        "y": 680,
         "wires": []
     }
 ]
