@@ -64,8 +64,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1330,
-        "y": 760,
+        "x": 1310,
+        "y": 720,
         "wires": []
     },
     {
@@ -249,7 +249,6 @@
         "y": 700,
         "wires": [
             [
-                "675cf8ba76568019",
                 "51de12f8cefcffbd"
             ]
         ]
@@ -424,12 +423,13 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 840,
-        "y": 580,
+        "x": 880,
+        "y": 560,
         "wires": [
             [
                 "88b4181fcd4a9d1b",
-                "a98ce99f0bdc684a"
+                "a98ce99f0bdc684a",
+                "675cf8ba76568019"
             ]
         ]
     },
