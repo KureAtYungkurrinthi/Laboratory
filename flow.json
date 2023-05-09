@@ -378,7 +378,7 @@
         "y": 620,
         "wires": [
             [
-                "f8ad8ac83a2e2e71"
+                "dbf28c3dc62e4a72"
             ]
         ]
     },
@@ -471,8 +471,8 @@
         "name": "",
         "statusCode": "200",
         "headers": {},
-        "x": 840,
-        "y": 800,
+        "x": 860,
+        "y": 780,
         "wires": []
     },
     {
@@ -505,8 +505,61 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
-        "y": 760,
+        "x": 840,
+        "y": 840,
         "wires": []
+    },
+    {
+        "id": "dbf28c3dc62e4a72",
+        "type": "switch",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "property": "payload.length",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "0",
+                "vt": "str"
+            },
+            {
+                "t": "lte",
+                "v": "0",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 390,
+        "y": 780,
+        "wires": [
+            [
+                "f8ad8ac83a2e2e71"
+            ],
+            [
+                "9e311bdab8cb8b7d"
+            ]
+        ]
+    },
+    {
+        "id": "9e311bdab8cb8b7d",
+        "type": "template",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "You got no email : {{payload}} !",
+        "output": "str",
+        "x": 540,
+        "y": 840,
+        "wires": [
+            [
+                "dd3b9427027ce47b",
+                "4bf6e6d943e2a839"
+            ]
+        ]
     }
 ]
