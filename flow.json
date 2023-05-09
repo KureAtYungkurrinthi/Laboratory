@@ -232,7 +232,6 @@
         "y": 680,
         "wires": [
             [
-                "675cf8ba76568019",
                 "51de12f8cefcffbd"
             ]
         ]
@@ -352,8 +351,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 2,
-        "x": 450,
-        "y": 780,
+        "x": 550,
+        "y": 720,
         "wires": [
             [
                 "f8ad8ac83a2e2e71"
@@ -374,8 +373,8 @@
         "syntax": "mustache",
         "template": "You got no email : {{payload}} !",
         "output": "str",
-        "x": 680,
-        "y": 780,
+        "x": 700,
+        "y": 760,
         "wires": [
             [
                 "dd3b9427027ce47b"
@@ -418,23 +417,6 @@
                 "1b0835c685acc337"
             ]
         ]
-    },
-    {
-        "id": "675cf8ba76568019",
-        "type": "debug",
-        "z": "a1856de285adc81c",
-        "name": "debugMsg",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 850,
-        "y": 640,
-        "wires": []
     },
     {
         "id": "51de12f8cefcffbd",
@@ -493,9 +475,7 @@
         "y": 260,
         "wires": [
             [
-                "88b4181fcd4a9d1b",
-                "6c993d439a83e59c",
-                "4725f68a6b9adab4"
+                "6c993d439a83e59c"
             ]
         ]
     },
@@ -597,7 +577,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "getSubject",
-        "func": "msg.topic = \"Subject\"\nmsg.payload = msg.payload.subject\nreturn msg;",
+        "func": "msg.payload = msg.payload.subject;\nmsg.topic = \"Subject\";\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
