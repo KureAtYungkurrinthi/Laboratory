@@ -403,7 +403,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.payload.translate;\nmsg.parts = msg.originalParts;\nreturn msg;",
+        "func": "var translateResult = msg.payload.translate;\nvar nluResult = msg.features;\n\nmsg.payload = msg.originalPayload;\nmsg.payload.features = nluResult;\nmsg.payload.translatedSnippet = translateResult;\nmsg.parts = msg.originalParts;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -459,7 +459,8 @@
         "wires": [
             [
                 "6c993d439a83e59c",
-                "708c582edf540f20"
+                "708c582edf540f20",
+                "52a79e17999144ed"
             ]
         ]
     },
@@ -477,7 +478,7 @@
         "joinerType": "str",
         "accumulate": false,
         "timeout": "",
-        "count": "",
+        "count": "2",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
