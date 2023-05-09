@@ -469,9 +469,9 @@
         "type": "http response",
         "z": "a1856de285adc81c",
         "name": "",
-        "statusCode": "200",
+        "statusCode": "",
         "headers": {},
-        "x": 860,
+        "x": 850,
         "y": 780,
         "wires": []
     },
@@ -553,7 +553,7 @@
         "syntax": "mustache",
         "template": "You got no email : {{payload}} !",
         "output": "str",
-        "x": 540,
+        "x": 620,
         "y": 840,
         "wires": [
             [
