@@ -47,7 +47,7 @@
         "wires": [
             [
                 "60cd4a6a6e24b04d",
-                "80f93557777c3fd0"
+                "6a52d483948ef285"
             ]
         ]
     },
@@ -94,7 +94,7 @@
         "wires": [
             [
                 "f0c02833731dcdc6",
-                "80f93557777c3fd0"
+                "b2f0157696fb1e72"
             ]
         ]
     },
@@ -249,12 +249,16 @@
         "key": "topic",
         "joiner": "\\n",
         "joinerType": "str",
-        "accumulate": "false",
+        "accumulate": true,
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1330,
-        "y": 700,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1510,
+        "y": 620,
         "wires": [
             [
                 "73ad1e12c9c44ff4"
@@ -382,17 +386,17 @@
         "id": "1b0835c685acc337",
         "type": "debug",
         "z": "a1856de285adc81c",
-        "name": "debugCombine",
+        "name": "checkFirstJoin",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1460,
-        "y": 600,
+        "x": 1500,
+        "y": 760,
         "wires": []
     },
     {
@@ -400,17 +404,16 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.translation;\nreturn msg;",
+        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.translation;\nmsg.parts = msg.originalParts;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1240,
+        "x": 1340,
         "y": 620,
         "wires": [
             [
-                "1b0835c685acc337",
                 "75f277e4dd35be43"
             ]
         ]
@@ -437,7 +440,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "msg.originalPayload = msg.payload;\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet,   \n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -491,6 +494,62 @@
             [
                 "88b4181fcd4a9d1b",
                 "a98ce99f0bdc684a"
+            ]
+        ]
+    },
+    {
+        "id": "b2f0157696fb1e72",
+        "type": "join",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 1190,
+        "y": 680,
+        "wires": [
+            [
+                "80f93557777c3fd0",
+                "1b0835c685acc337"
+            ]
+        ]
+    },
+    {
+        "id": "6a52d483948ef285",
+        "type": "change",
+        "z": "a1856de285adc81c",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "features",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1070,
+        "y": 580,
+        "wires": [
+            [
+                "b2f0157696fb1e72"
             ]
         ]
     }
