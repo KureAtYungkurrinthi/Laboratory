@@ -475,10 +475,10 @@
         "rules": [
             {
                 "t": "set",
-                "p": "originalEmailMsg",
-                "pt": "flow",
-                "to": "payload",
-                "tot": "msg",
+                "p": "payload",
+                "pt": "msg",
+                "to": "originalEmailMsg",
+                "tot": "flow",
                 "dc": true
             }
         ],
