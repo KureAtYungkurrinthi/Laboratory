@@ -440,7 +440,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "createEmailObj",
-        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: msg.payload.snippet.replace(/[^a-zA-Z0-9 ]/g, \"\"),\n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
+        "func": "msg.originalPayload = msg.payload;\nmsg.originalParts = msg.parts;\n\nvar cleanedSnippet = msg.payload.snippet.replace(/[\\u3000-\\u303F\\uFF01-\\uFF0F\\uFF1A-\\uFF20\\uFF3B-\\uFF40\\uFFE0-\\uFFE5]/g, \"\");\n\n// Create Email Contant\nvar emailContant = {\n    subject: msg.payload.subject,\n    snippet: cleanedSnippet\n};\n\nmsg.payload = JSON.stringify(emailContant);\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
