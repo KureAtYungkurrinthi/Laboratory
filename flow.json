@@ -407,8 +407,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1380,
-        "y": 680,
+        "x": 1400,
+        "y": 700,
         "wires": []
     },
     {
@@ -533,7 +533,8 @@
                 "p": "originalEmailMsg",
                 "pt": "flow",
                 "to": "payload",
-                "tot": "msg"
+                "tot": "msg",
+                "dc": true
             }
         ],
         "action": "",
