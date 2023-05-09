@@ -469,10 +469,10 @@
         "type": "http response",
         "z": "a1856de285adc81c",
         "name": "",
-        "statusCode": "",
+        "statusCode": "200",
         "headers": {},
-        "x": 710,
-        "y": 820,
+        "x": 840,
+        "y": 800,
         "wires": []
     },
     {
