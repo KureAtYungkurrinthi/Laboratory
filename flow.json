@@ -403,7 +403,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "var translateResult = JSON.parse(msg.translation[0].translation);\nmsg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = translateResult;\nmsg.parts = msg.originalParts;\nreturn msg;",
+        "func": "msg.payload = msg.originalPayload;\nmsg.payload.features = msg.features;\nmsg.payload.translatedSnippet = msg.payload.translate;\nmsg.parts = msg.originalParts;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -682,8 +682,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1640,
-        "y": 160,
+        "x": 1760,
+        "y": 260,
         "wires": []
     },
     {
