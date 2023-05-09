@@ -448,8 +448,26 @@
         "y": 940,
         "wires": [
             [
-                "75f277e4dd35be43"
+                "75f277e4dd35be43",
+                "1b0835c685acc337"
             ]
         ]
+    },
+    {
+        "id": "1b0835c685acc337",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "debugCombine",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1180,
+        "y": 1000,
+        "wires": []
     }
 ]
