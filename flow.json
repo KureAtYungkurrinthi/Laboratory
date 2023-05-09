@@ -416,7 +416,7 @@
         "type": "function",
         "z": "a1856de285adc81c",
         "name": "combineResult",
-        "func": "msg.payload.result = msg.result;\nmsg.payload.features = msg.features;\nreturn msg;",
+        "func": "msg.payload.result = flow.get(\"result\");\nmsg.payload.features = msg.features;\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -506,7 +506,7 @@
                 "p": "payload",
                 "pt": "msg",
                 "to": "result",
-                "tot": "msg"
+                "tot": "flow"
             }
         ],
         "action": "",
