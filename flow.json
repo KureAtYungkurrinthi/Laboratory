@@ -8,11 +8,12 @@
         "env": []
     },
     {
-        "id": "d9e90a9.8a92bf8",
+        "id": "36f7cf6d3d30363e",
         "type": "tab",
         "label": "frontend",
         "disabled": false,
-        "info": ""
+        "info": "",
+        "env": []
     },
     {
         "id": "a5d00a8b.c7ed48",
