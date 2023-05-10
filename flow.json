@@ -11,9 +11,28 @@
         "id": "36f7cf6d3d30363e",
         "type": "tab",
         "label": "frontend",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
+    },
+    {
+        "id": "4a4a4f4f.23636",
+        "type": "ui_group",
+        "name": "Email Dashboard",
+        "tab": "c1e1fddb.054a2",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c1e1fddb.054a2",
+        "type": "ui_tab",
+        "name": "Inbox",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     },
     {
         "id": "88b4181fcd4a9d1b",
@@ -909,16 +928,82 @@
         ]
     },
     {
-        "id": "24a96fddbfe7aefc",
+        "id": "c83c03ab.3b5ca",
         "type": "http in",
         "z": "36f7cf6d3d30363e",
-        "name": "GET /inbox",
-        "url": "inbox",
+        "name": "GET /Inbox",
+        "url": "/inbox",
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
         "x": 260,
-        "y": 300,
+        "y": 320,
+        "wires": [
+            [
+                "da49e1c4.7f729"
+            ]
+        ]
+    },
+    {
+        "id": "da49e1c4.7f729",
+        "type": "http request",
+        "z": "36f7cf6d3d30363e",
+        "name": "Request Email Content",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://flow.sigure.net/getEmails/5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "c3ac9ab3.80c818"
+            ]
+        ]
+    },
+    {
+        "id": "c3ac9ab3.80c818",
+        "type": "template",
+        "z": "36f7cf6d3d30363e",
+        "name": "Email Dashboard Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table class=\"table-auto\">\n  <tr>\n    <th>Date</th>\n    <th>From (Name)</th>\n    <th>From (Email)</th>\n    <th>Subject</th>\n    <th>Snippet</th>\n    <th>Subject(Translated)</th>\n    <th>Subject(Snippet)</th>\n    <th>Feature</th>\n    <th>Score</th>\n  </tr>\n  {{#payload}}\n  <tr>\n    <td>{{date}}</td>\n    <td>{{from.0.name}}</td>\n    <td>{{from.0.email}}</td>\n    <td>{{subject}}</td>\n    <td>{{snippet}}</td>\n    <td>{{translatedSnippet.subject}}</td>\n    <td>{{translatedSnippet.snippet}}</td>\n    <td>{{features.categories.0.label}}</td>\n    <td>{{features.categories.0.score}}</td>\n  </tr>\n  {{/payload}}\n</table>",
+        "output": "str",
+        "x": 740,
+        "y": 320,
+        "wires": [
+            [
+                "5b78235c.8a014c"
+            ]
+        ]
+    },
+    {
+        "id": "5b78235c.8a014c",
+        "type": "ui_template",
+        "z": "36f7cf6d3d30363e",
+        "group": "4a4a4f4f.23636",
+        "name": "Display Emails",
+        "order": 1,
+        "width": "24",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 980,
+        "y": 320,
         "wires": [
             []
         ]
