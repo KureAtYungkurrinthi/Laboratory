@@ -965,5 +965,59 @@
         "x": 1230,
         "y": 420,
         "wires": []
+    },
+    {
+        "id": "347b6976bd425f3c",
+        "type": "http request",
+        "z": "36f7cf6d3d30363e",
+        "name": "GET /inbox",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "/inbox",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 250,
+        "y": 220,
+        "wires": [
+            [
+                "5abff749d05c6ff7"
+            ]
+        ]
+    },
+    {
+        "id": "5abff749d05c6ff7",
+        "type": "template",
+        "z": "36f7cf6d3d30363e",
+        "name": "login page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Node-RED Authentication</title>\n</head>\n\n<body>\n    <h1>Login</h1>\n    <form id=\"login-form\">\n        <label for=\"username\">Username:</label>\n        <input type=\"text\" id=\"username\" name=\"username\">\n        <br>\n        <label for=\"password\">Password:</label>\n        <input type=\"password\" id=\"password\" name=\"password\">\n        <br>\n        <button type=\"submit\">Login</button>\n    </form>\n    <div id=\"result\"></div>\n    <script>\n        const form = document.getElementById('login-form');\n        const resultDiv = document.getElementById('result');\n        \n        form.addEventListener('submit', async (e) => {\n        e.preventDefault();\n        \n        const formData = new FormData(form);\n        const username = formData.get('username');\n        const password = formData.get('password');\n        \n        try {\n        const response = await fetch('/authenticate', {\n            method: 'POST',\n            headers: {\n            'Content-Type': 'application/json'\n            },\n            body: JSON.stringify({ username, password })\n            });\n            \n            const data = await response.json();\n            \n            if (data.success) {\n            // Redirect user to \"/inbox\"\n            window.location.href = data.redirectUrl;\n            \n            // Display data in the result div or any other way you prefer\n            resultDiv.innerHTML = `<h2>Data from API:</h2>\n            <pre>${JSON.stringify(data.data, null, 2)}</pre>`;\n            } else {\n            resultDiv.innerHTML = `<p style=\"color: red;\">${data.message}</p>`;\n            }\n            } catch (error) {\n            console.error('Error:', error);\n            }\n        });\n    </script>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 490,
+        "y": 220,
+        "wires": [
+            [
+                "9615aa96d1bb1fb0"
+            ]
+        ]
+    },
+    {
+        "id": "9615aa96d1bb1fb0",
+        "type": "http response",
+        "z": "36f7cf6d3d30363e",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 220,
+        "wires": []
     }
 ]
