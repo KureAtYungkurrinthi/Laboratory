@@ -176,7 +176,8 @@
         "y": 660,
         "wires": [
             [
-                "dbf28c3dc62e4a72"
+                "dbf28c3dc62e4a72",
+                "fdd0abe6457e564f"
             ]
         ]
     },
@@ -730,5 +731,22 @@
                 "dd3b9427027ce47b"
             ]
         ]
+    },
+    {
+        "id": "fdd0abe6457e564f",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "Nylas Response",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 620,
+        "wires": []
     }
 ]
