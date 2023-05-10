@@ -3,7 +3,7 @@
         "id": "a1856de285adc81c",
         "type": "tab",
         "label": "backend",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
