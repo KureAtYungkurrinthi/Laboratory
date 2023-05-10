@@ -16,16 +16,6 @@
         "env": []
     },
     {
-        "id": "a5d00a8b.c7ed48",
-        "type": "ui_group",
-        "name": "Smart Inbox",
-        "tab": "66f5c8a0.b20808",
-        "order": 1,
-        "disp": true,
-        "width": "18",
-        "collapse": false
-    },
-    {
         "id": "66f5c8a0.b20808",
         "type": "ui_tab",
         "name": "Smart Inbox Dashboard",
