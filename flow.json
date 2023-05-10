@@ -974,7 +974,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "/inbox",
+        "url": "inbox",
         "tls": "",
         "persist": false,
         "proxy": "",
