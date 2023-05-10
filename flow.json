@@ -3,6 +3,14 @@
         "id": "a1856de285adc81c",
         "type": "tab",
         "label": "backend",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "23c53d604e3f87b7",
+        "type": "tab",
+        "label": "frontend",
         "disabled": false,
         "info": "",
         "env": []
