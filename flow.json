@@ -967,30 +967,6 @@
         "wires": []
     },
     {
-        "id": "347b6976bd425f3c",
-        "type": "http request",
-        "z": "36f7cf6d3d30363e",
-        "name": "GET /inbox",
-        "method": "GET",
-        "ret": "txt",
-        "paytoqs": "ignore",
-        "url": "inbox",
-        "tls": "",
-        "persist": false,
-        "proxy": "",
-        "insecureHTTPParser": false,
-        "authType": "",
-        "senderr": false,
-        "headers": [],
-        "x": 250,
-        "y": 220,
-        "wires": [
-            [
-                "5abff749d05c6ff7"
-            ]
-        ]
-    },
-    {
         "id": "5abff749d05c6ff7",
         "type": "template",
         "z": "36f7cf6d3d30363e",
@@ -1019,5 +995,22 @@
         "x": 690,
         "y": 220,
         "wires": []
+    },
+    {
+        "id": "4cf2c4ebb3bed960",
+        "type": "http in",
+        "z": "36f7cf6d3d30363e",
+        "name": "Get /inbox",
+        "url": "inbox",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 260,
+        "y": 220,
+        "wires": [
+            [
+                "5abff749d05c6ff7"
+            ]
+        ]
     }
 ]
