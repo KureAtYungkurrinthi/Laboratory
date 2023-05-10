@@ -8,12 +8,126 @@
         "env": []
     },
     {
-        "id": "23c53d604e3f87b7",
+        "id": "d9e90a9.8a92bf8",
         "type": "tab",
         "label": "frontend",
         "disabled": false,
-        "info": "",
-        "env": []
+        "info": ""
+    },
+    {
+        "id": "a5d00a8b.c7ed48",
+        "type": "ui_group",
+        "name": "Smart Inbox",
+        "tab": "66f5c8a0.b20808",
+        "order": 1,
+        "disp": true,
+        "width": "18",
+        "collapse": false
+    },
+    {
+        "id": "66f5c8a0.b20808",
+        "type": "ui_tab",
+        "name": "Smart Inbox Dashboard",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "502f66db23e586fa",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
     },
     {
         "id": "88b4181fcd4a9d1b",
@@ -755,6 +869,110 @@
         "statusType": "auto",
         "x": 900,
         "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5fde8d79.1e6f84",
+        "type": "http in",
+        "z": "a1856de285adc81c",
+        "name": "Authenticate",
+        "url": "/authenticate",
+        "method": "post",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 370,
+        "y": 440,
+        "wires": [
+            [
+                "3977a9a9.89a7d6"
+            ]
+        ]
+    },
+    {
+        "id": "3977a9a9.89a7d6",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "Check Credentials",
+        "func": "const validCredentials = {\n    \"user1\": \"password1\",\n    \"user2\": \"password2\"\n};\n\nlet payload = JSON.parse(msg.payload);\nlet username = payload.username;\nlet password = payload.password;\n\nif (validCredentials[username] && validCredentials[username] === password) {\n    msg.payload = {\"success\": true, \"message\": \"Authenticated\", \"redirectUrl\": \"/inbox\"};\n    return [msg, null];\n} else {\n    msg.payload = {\"success\": false, \"message\": \"Invalid credentials\"};\n    return [null, msg];\n}",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 440,
+        "wires": [
+            [
+                "88eac9d9.976e98"
+            ],
+            [
+                "3c3a3f13.35a93"
+            ]
+        ]
+    },
+    {
+        "id": "88eac9d9.976e98",
+        "type": "http request",
+        "z": "a1856de285adc81c",
+        "name": "Request Data",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://jsonplaceholder.typicode.com/posts/1",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 820,
+        "y": 420,
+        "wires": [
+            [
+                "e0db9d27.6dc33"
+            ]
+        ]
+    },
+    {
+        "id": "e0db9d27.6dc33",
+        "type": "function",
+        "z": "a1856de285adc81c",
+        "name": "Prepare Response",
+        "func": "msg.payload = {\n    success: true,\n    message: 'Authenticated',\n    redirectUrl: '/inbox',\n    data: JSON.parse(msg.payload)\n};\n    return msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 420,
+        "wires": [
+            [
+                "bde8b7d4.4c3a98"
+            ]
+        ]
+    },
+    {
+        "id": "3c3a3f13.35a93",
+        "type": "http response",
+        "z": "a1856de285adc81c",
+        "name": "Failed Response",
+        "statusCode": "401",
+        "headers": {},
+        "x": 840,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "bde8b7d4.4c3a98",
+        "type": "http response",
+        "z": "a1856de285adc81c",
+        "name": "Success Response",
+        "statusCode": "",
+        "headers": {},
+        "x": 1230,
+        "y": 420,
         "wires": []
     }
 ]
