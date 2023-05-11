@@ -3,7 +3,7 @@
         "id": "a1856de285adc81c",
         "type": "tab",
         "label": "backend",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -11,7 +11,7 @@
         "id": "9b92f5ea88500301",
         "type": "tab",
         "label": "frontend",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
