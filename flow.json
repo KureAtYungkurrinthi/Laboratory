@@ -199,7 +199,8 @@
         "y": 1100,
         "wires": [
             [
-                "0b92e83ff9e82315"
+                "0b92e83ff9e82315",
+                "48fadfda62bfdfbf"
             ]
         ]
     },
@@ -675,7 +676,8 @@
         "y": 1040,
         "wires": [
             [
-                "0b92e83ff9e82315"
+                "0b92e83ff9e82315",
+                "48fadfda62bfdfbf"
             ]
         ]
     },
@@ -974,6 +976,23 @@
         "headers": {},
         "x": 1230,
         "y": 420,
+        "wires": []
+    },
+    {
+        "id": "48fadfda62bfdfbf",
+        "type": "debug",
+        "z": "a1856de285adc81c",
+        "name": "check translator result",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 1240,
         "wires": []
     },
     {
