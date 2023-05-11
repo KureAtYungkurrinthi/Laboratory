@@ -19,7 +19,7 @@
         "id": "9b92f5ea88500301",
         "type": "tab",
         "label": "Flow 1",
-        "disabled": true,
+        "disabled": false,
         "info": "",
         "env": []
     },
@@ -1335,7 +1335,7 @@
         "type": "debug",
         "z": "9b92f5ea88500301",
         "name": "debug 2",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
