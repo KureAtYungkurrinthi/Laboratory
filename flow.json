@@ -1197,5 +1197,150 @@
                 "511eb89ac97459d4"
             ]
         ]
+    },
+    {
+        "id": "e432f3a19ab2888e",
+        "type": "template",
+        "z": "9b92f5ea88500301",
+        "name": "login page",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "html",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Node-RED Authentication</title>\n</head>\n\n<body>\n    <h1>Login</h1>\n    <form id=\"login-form\">\n        <label for=\"username\">Username:</label>\n        <input type=\"text\" id=\"username\" name=\"username\">\n        <br>\n        <label for=\"password\">Password:</label>\n        <input type=\"password\" id=\"password\" name=\"password\">\n        <br>\n        <button type=\"submit\">Login</button>\n    </form>\n    <div id=\"result\"></div>\n    <script>\n        const form = document.getElementById('login-form');\n        const resultDiv = document.getElementById('result');\n        \n        form.addEventListener('submit', async (e) => {\n        e.preventDefault();\n        \n        const formData = new FormData(form);\n        const username = formData.get('username');\n        const password = formData.get('password');\n        \n        try {\n        const response = await fetch('/authenticate', {\n            method: 'POST',\n            headers: {\n            'Content-Type': 'application/json'\n            },\n            body: JSON.stringify({ username, password })\n            });\n            \n            const data = await response.json();\n            \n            if (data.success) {\n            // Redirect user to \"/inbox\"\n            window.location.href = data.redirectUrl;\n            \n            // Display data in the result div or any other way you prefer\n            resultDiv.innerHTML = `<h2>Data from API:</h2>\n            <pre>${JSON.stringify(data.data, null, 2)}</pre>`;\n            } else {\n            resultDiv.innerHTML = `<p style=\"color: red;\">${data.message}</p>`;\n            }\n            } catch (error) {\n            console.error('Error:', error);\n            }\n        });\n    </script>\n</body>\n\n</html>",
+        "output": "str",
+        "x": 510,
+        "y": 480,
+        "wires": [
+            [
+                "5a998291310571df"
+            ]
+        ]
+    },
+    {
+        "id": "5a998291310571df",
+        "type": "http response",
+        "z": "9b92f5ea88500301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "5390f445b54b7e10",
+        "type": "http in",
+        "z": "9b92f5ea88500301",
+        "name": "Get /login",
+        "url": "/login",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 280,
+        "y": 460,
+        "wires": [
+            [
+                "e432f3a19ab2888e",
+                "9d05432cc2ccc583"
+            ]
+        ]
+    },
+    {
+        "id": "2d0674c8bbdd2459",
+        "type": "http in",
+        "z": "9b92f5ea88500301",
+        "name": "GET /Inbox",
+        "url": "/inbox",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 310,
+        "y": 600,
+        "wires": [
+            [
+                "eb85d3f408cbd110"
+            ]
+        ]
+    },
+    {
+        "id": "eb85d3f408cbd110",
+        "type": "http request",
+        "z": "9b92f5ea88500301",
+        "name": "Request Email Content",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://flow.sigure.net/getEmails/5",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 590,
+        "y": 600,
+        "wires": [
+            [
+                "125160f915dfc74f"
+            ]
+        ]
+    },
+    {
+        "id": "125160f915dfc74f",
+        "type": "template",
+        "z": "9b92f5ea88500301",
+        "name": "Email Dashboard Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<table class=\"table-auto\">\n  <tr>\n    <th>Date</th>\n    <th>From (Name)</th>\n    <th>From (Email)</th>\n    <th>Subject</th>\n    <th>Snippet</th>\n    <th>Subject(Translated)</th>\n    <th>Subject(Snippet)</th>\n    <th>Feature</th>\n    <th>Score</th>\n  </tr>\n  {{#payload}}\n  <tr>\n    <td>{{date}}</td>\n    <td>{{from.0.name}}</td>\n    <td>{{from.0.email}}</td>\n    <td>{{subject}}</td>\n    <td>{{snippet}}</td>\n    <td>{{translatedSnippet.subject}}</td>\n    <td>{{translatedSnippet.snippet}}</td>\n    <td>{{features.categories.0.label}}</td>\n    <td>{{features.categories.0.score}}</td>\n  </tr>\n  {{/payload}}\n</table>",
+        "output": "str",
+        "x": 880,
+        "y": 580,
+        "wires": [
+            [
+                "c5c2e4b5d5c0b1d0"
+            ]
+        ]
+    },
+    {
+        "id": "c5c2e4b5d5c0b1d0",
+        "type": "ui_template",
+        "z": "9b92f5ea88500301",
+        "group": "4a4a4f4f.23636",
+        "name": "Display Emails",
+        "order": 1,
+        "width": "24",
+        "height": "10",
+        "format": "<div ng-bind-html=\"msg.payload\"></div>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1000,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9d05432cc2ccc583",
+        "type": "debug",
+        "z": "9b92f5ea88500301",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 400,
+        "wires": []
     }
 ]
