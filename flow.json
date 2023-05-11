@@ -1325,7 +1325,9 @@
         "x": 1000,
         "y": 400,
         "wires": [
-            []
+            [
+                "49d907810fb93233"
+            ]
         ]
     },
     {
@@ -1349,7 +1351,7 @@
         "type": "debug",
         "z": "9b92f5ea88500301",
         "name": "debug 3",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1358,6 +1360,17 @@
         "statusType": "auto",
         "x": 480,
         "y": 520,
+        "wires": []
+    },
+    {
+        "id": "49d907810fb93233",
+        "type": "http response",
+        "z": "9b92f5ea88500301",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 1370,
+        "y": 480,
         "wires": []
     }
 ]
