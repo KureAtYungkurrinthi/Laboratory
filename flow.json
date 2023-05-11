@@ -3,7 +3,7 @@
         "id": "a1856de285adc81c",
         "type": "tab",
         "label": "backend",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -11,7 +11,7 @@
         "id": "9b92f5ea88500301",
         "type": "tab",
         "label": "frontend",
-        "disabled": false,
+        "disabled": true,
         "info": "",
         "env": []
     },
@@ -1235,6 +1235,180 @@
         "headers": {},
         "x": 1370,
         "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3449f2731d0d0a75",
+        "type": "inject",
+        "z": "9b92f5ea88500301",
+        "name": "Node-red",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "hi kushal ",
+        "payload": "Hello Node Red urgent",
+        "payloadType": "str",
+        "x": 280,
+        "y": 880,
+        "wires": [
+            [
+                "4c4c06f4.c2b5e8"
+            ]
+        ]
+    },
+    {
+        "id": "1bdded09370836d8",
+        "type": "e-mail",
+        "z": "9b92f5ea88500301",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "secure": true,
+        "tls": true,
+        "name": "patelkushal682@gmail.com",
+        "dname": "",
+        "x": 900,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "7e7b1819e1712efd",
+        "type": "e-mail in",
+        "z": "9b92f5ea88500301",
+        "name": "",
+        "protocol": "IMAP",
+        "server": "imap.gmail.com",
+        "useSSL": true,
+        "autotls": "never",
+        "port": "993",
+        "authtype": "BASIC",
+        "saslformat": true,
+        "token": "oauth2Response.access_token",
+        "box": "INBOX",
+        "disposition": "Read",
+        "criteria": "UNSEEN",
+        "repeat": "30",
+        "fetch": "auto",
+        "inputs": 0,
+        "x": 590,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4c4c06f4.c2b5e8",
+        "type": "switch",
+        "z": "9b92f5ea88500301",
+        "name": "Email Filter",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "cont",
+                "v": "urgent",
+                "vt": "str"
+            },
+            {
+                "t": "cont",
+                "v": "important",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 570,
+        "y": 860,
+        "wires": [
+            [
+                "46b1f91b.6f0c6c",
+                "1bdded09370836d8"
+            ],
+            [
+                "a6d25a24.8d66b",
+                "1bdded09370836d8"
+            ],
+            [
+                "1fc77f53.77e732",
+                "1bdded09370836d8"
+            ]
+        ]
+    },
+    {
+        "id": "46b1f91b.6f0c6c",
+        "type": "debug",
+        "z": "9b92f5ea88500301",
+        "name": "Urgent Emails",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "a6d25a24.8d66b",
+        "type": "debug",
+        "z": "9b92f5ea88500301",
+        "name": "Important Emails",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "1fc77f53.77e732",
+        "type": "debug",
+        "z": "9b92f5ea88500301",
+        "name": "Other Emails",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "a9d3849d.5cb6a8",
+        "type": "comment",
+        "z": "9b92f5ea88500301",
+        "name": "Email Flow",
+        "info": "",
+        "x": 280,
+        "y": 820,
         "wires": []
     }
 ]
