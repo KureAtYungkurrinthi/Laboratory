@@ -39,6 +39,21 @@
         "info": ""
     },
     {
+        "id": "9688a775.6733c8",
+        "type": "tab",
+        "label": "Assistant with Intents",
+        "disabled": true,
+        "info": ""
+    },
+    {
+        "id": "1f3cd12a1dcf6f50",
+        "type": "tab",
+        "label": "Dashboard Tutorial",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "13670ec7.766dc1",
         "type": "ui_group",
         "name": "Assistant",
@@ -63,9 +78,10 @@
             "name": "theme-light",
             "lightTheme": {
                 "default": "#0094CE",
-                "baseColor": "#0094CE",
+                "baseColor": "#000000",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "darkTheme": {
                 "default": "#097479",
@@ -82,11 +98,11 @@
             "themeState": {
                 "base-color": {
                     "default": "#0094CE",
-                    "value": "#0094CE",
-                    "edited": false
+                    "value": "#000000",
+                    "edited": true
                 },
                 "page-titlebar-backgroundColor": {
-                    "value": "#0094CE",
+                    "value": "#000000",
                     "edited": false
                 },
                 "page-backgroundColor": {
@@ -94,11 +110,11 @@
                     "edited": false
                 },
                 "page-sidebar-backgroundColor": {
-                    "value": "#ffffff",
+                    "value": "#333333",
                     "edited": false
                 },
                 "group-textColor": {
-                    "value": "#1bbfff",
+                    "value": "#262626",
                     "edited": false
                 },
                 "group-borderColor": {
@@ -114,7 +130,7 @@
                     "edited": false
                 },
                 "widget-backgroundColor": {
-                    "value": "#0094ce",
+                    "value": "#000000",
                     "edited": false
                 },
                 "widget-borderColor": {
@@ -151,6 +167,96 @@
                 "py": 0
             }
         }
+    },
+    {
+        "id": "3a684de00f3399b7",
+        "type": "ui_spacer",
+        "z": "9688a775.6733c8",
+        "name": "spacer",
+        "group": "788b487f.4c7888",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "eefefb70e658cd36",
+        "type": "ui_spacer",
+        "z": "9688a775.6733c8",
+        "name": "spacer",
+        "group": "788b487f.4c7888",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a99da1ea.ead0f",
+        "type": "ui_group",
+        "name": "Assistant",
+        "tab": "f1438030.7b71d",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "788b487f.4c7888",
+        "type": "ui_group",
+        "name": "User's Intents and confidence",
+        "tab": "f1438030.7b71d",
+        "order": 2,
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "f1438030.7b71d",
+        "type": "ui_tab",
+        "name": "4 UI Table",
+        "icon": "dashboard",
+        "order": 4,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2aae25d57ff1682a",
+        "type": "ui_tab",
+        "name": "Demo",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "5cea0343409df5e7",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "2aae25d57ff1682a",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ca079b31e66632ca",
+        "type": "ui_group",
+        "name": "Analog",
+        "tab": "2aae25d57ff1682a",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "84979207f4022fae",
+        "type": "ui_group",
+        "name": "Discrete",
+        "tab": "2aae25d57ff1682a",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "2f6208f4f76c9347",
@@ -756,6 +862,454 @@
         "layout": "row-left",
         "x": 610,
         "y": 200,
+        "wires": []
+    },
+    {
+        "id": "94c8c304.1e53a",
+        "type": "debug",
+        "z": "9688a775.6733c8",
+        "name": "assistant debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "8aa2ff80.8d0e7",
+        "type": "ui_form",
+        "z": "9688a775.6733c8",
+        "name": "Asssistant input",
+        "label": "",
+        "group": "a99da1ea.ead0f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "options": [
+            {
+                "label": "Your input",
+                "value": "text",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "text": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "topicType": "str",
+        "splitLayout": false,
+        "x": 180,
+        "y": 200,
+        "wires": [
+            [
+                "6ad7161cb3c8fd12"
+            ]
+        ]
+    },
+    {
+        "id": "11989d6c.ecbc23",
+        "type": "function",
+        "z": "9688a775.6733c8",
+        "name": "",
+        "func": "var list1 = [];\nvar count = msg.payload.output.intents.length;\n\nfor (i=0;i<count;i++) {  \n    if (msg.payload.output.intents[i].intent !== undefined) {      \n                         list1.push({  intent: msg.payload.output.intents[i].intent,\n                         confidence : msg.payload.output.intents[i].confidence\n                      });\n    }\n}\n\nmsg.payload = {\"intents\": list1}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 140,
+        "wires": [
+            [
+                "13cee7d.c1af218"
+            ]
+        ]
+    },
+    {
+        "id": "13cee7d.c1af218",
+        "type": "ui_template",
+        "z": "9688a775.6733c8",
+        "group": "788b487f.4c7888",
+        "name": "Table template",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "format": "<!DOCTYPE html>\n<html>\n<head>\n</head>\n<body>\n<table id=\"table\" border=\"1\" width=80%>\n    <tr><th> Intent </th>\n        <th> Confidence </th>\n    </tr>\n<tbody>\n<tr ng-repeat=\"row in msg.payload.intents\">\n<td ng-repeat=\"item in row\">{{item}}</td>\n</tr>\n</tbody>\n</table>\n</body>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "x": 840,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cbfbd964.0d3a68",
+        "type": "ui_text",
+        "z": "9688a775.6733c8",
+        "group": "a99da1ea.ead0f",
+        "order": 2,
+        "width": "0",
+        "height": "0",
+        "name": "",
+        "label": "Assistant output",
+        "format": "{{msg.payload.output.generic[0].text}}",
+        "layout": "col-center",
+        "x": 680,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "fe535e0f03feb4bb",
+        "type": "watson-assistant-v2",
+        "z": "9688a775.6733c8",
+        "name": "Customer Care",
+        "service-endpoint": "https://api.au-syd.assistant.watson.cloud.ibm.com/instances/483c212e-bf90-445d-b7ad-ff31272cda53",
+        "assistant_id": "4457fb7d-792c-46a2-9528-66ec9fff837c",
+        "debug": true,
+        "restart": false,
+        "return_context": true,
+        "alternate_intents": false,
+        "multisession": true,
+        "timeout": "",
+        "optout-learning": false,
+        "persist-session-id": false,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "11989d6c.ecbc23",
+                "cbfbd964.0d3a68",
+                "94c8c304.1e53a"
+            ]
+        ]
+    },
+    {
+        "id": "6ad7161cb3c8fd12",
+        "type": "function",
+        "z": "9688a775.6733c8",
+        "name": "Input",
+        "func": "msg.payload = msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "fe535e0f03feb4bb"
+            ]
+        ]
+    },
+    {
+        "id": "48064e1b425c0e72",
+        "type": "inject",
+        "z": "9688a775.6733c8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello",
+        "payloadType": "str",
+        "x": 70,
+        "y": 60,
+        "wires": [
+            [
+                "6ad7161cb3c8fd12"
+            ]
+        ]
+    },
+    {
+        "id": "54f29a45666400a0",
+        "type": "http in",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "url": "/test1",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 200,
+        "y": 140,
+        "wires": [
+            [
+                "cf2e0f2abf9d7e5e"
+            ]
+        ]
+    },
+    {
+        "id": "cf2e0f2abf9d7e5e",
+        "type": "template",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<html>\n    <head>\n        <title>Node-RED Custom Site</title>\n    </head>\n    <body>\n        <h1>Hello World!</h1>\n        <p>Your test here!</p>\n    </body>\n</html>",
+        "output": "str",
+        "x": 400,
+        "y": 140,
+        "wires": [
+            [
+                "168b4593f07c334f"
+            ]
+        ]
+    },
+    {
+        "id": "168b4593f07c334f",
+        "type": "http response",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 610,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "09949a73f873d2e7",
+        "type": "ui_button",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "group": "5cea0343409df5e7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "button",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "Hello World!",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 190,
+        "y": 300,
+        "wires": [
+            [
+                "5a80ee29fcc6f46a",
+                "a26a3668a82fafd9",
+                "dfaac1581ec5ebee"
+            ]
+        ]
+    },
+    {
+        "id": "5a80ee29fcc6f46a",
+        "type": "debug",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a26a3668a82fafd9",
+        "type": "ui_text",
+        "z": "1f3cd12a1dcf6f50",
+        "group": "5cea0343409df5e7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "x": 390,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "be7c48fbd821d513",
+        "type": "ui_slider",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "label": "slider",
+        "tooltip": "",
+        "group": "ca079b31e66632ca",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "200",
+        "step": 1,
+        "className": "",
+        "x": 190,
+        "y": 380,
+        "wires": [
+            [
+                "d0a710a9dd3a561d",
+                "ebb666bb5fc9f39f",
+                "6237cffb6b6c90fb"
+            ]
+        ]
+    },
+    {
+        "id": "d0a710a9dd3a561d",
+        "type": "ui_gauge",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "group": "ca079b31e66632ca",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "75",
+        "seg2": "150",
+        "diff": false,
+        "className": "",
+        "x": 390,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ebb666bb5fc9f39f",
+        "type": "ui_chart",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "group": "ca079b31e66632ca",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 390,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6237cffb6b6c90fb",
+        "type": "ui_chart",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "group": "ca079b31e66632ca",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 390,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dfaac1581ec5ebee",
+        "type": "ui_audio",
+        "z": "1f3cd12a1dcf6f50",
+        "name": "",
+        "group": "84979207f4022fae",
+        "voice": "urn:moz-tts:sapi:Microsoft Catherine - English (Australia)?en-AU",
+        "always": true,
+        "x": 400,
+        "y": 220,
         "wires": []
     }
 ]
