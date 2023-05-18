@@ -1,6 +1,6 @@
 {
-    "name": "COMP9033",
-    "description": "Cloud and Distributed Computing Laboratory",
+    "name": "Laboratory",
+    "description": "COMP3033/COMP9033 Cloud and Distributed Computing Laboratory",
     "version": "1.0.0",
     "dependencies": {
         "node-red-node-feedparser": "0.3.0",
