@@ -789,8 +789,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 240,
+        "x": 600,
+        "y": 200,
         "wires": []
     },
     {
@@ -802,8 +802,8 @@
         "method": "get",
         "upload": false,
         "swaggerDoc": "",
-        "x": 600,
-        "y": 360,
+        "x": 400,
+        "y": 320,
         "wires": [
             [
                 "113f486fd678501f",
@@ -820,8 +820,8 @@
         "headers": {
             "content-type": "text/html"
         },
-        "x": 1190,
-        "y": 320,
+        "x": 990,
+        "y": 280,
         "wires": []
     },
     {
@@ -835,8 +835,8 @@
         "syntax": "mustache",
         "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"UTF-8\">\n    <title>SmartEmail - Intelligent Email Management System</title>\n  <style>\n    /* Reset default browser styles */\n    * {\n    box-sizing: border-box;\n    margin: 0;\n    padding: 0;\n    }\n    \n    /* Global styles */\n   html,body {\n    font-family: Arial, sans-serif;\n    font-size: 16px;\n    line-height: 2;\n    height:100%;\n    }\n    \n    a {\n    color: #333;\n    text-decoration: none;\n    }\n    \n    ul {\n    list-style: none;\n    }\n    \n    /* Header styles */\n    header {\n    background-color: #0077b6;\n    color: #fff;\n    padding: 20px;\n    }\n    \n    nav {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    }\n    \n    nav ul {\n    display: flex;\n    font-size:1.5rem;\n    }\n    \n    nav li {\n    margin-right: 20px;\n    }\n    \n    nav li:last-child {\n    margin-right: 0;\n    }\n    \n    nav a {\n    color: #fff;\n    text-transform: uppercase;\n    font-weight: bold;\n    }\n    \n    .search form {\n    display: flex;\n    align-items: center;\n    }\n    \n    .search input[type=\"text\"] {\n    padding: 10px;\n    border: none;\n    border-radius: 5px;\n    }\n    \n    .search button {\n    padding: 10px 20px;\n    background-color: #fff;\n    color: #0077b6;\n    border: none;\n    border-radius: 5px;\n    margin-left: 10px;\n    cursor: pointer;\n    }\n    \n    /* Main styles */\n    main {\n    padding: 50px;\n    text-align: center;\n    }\n    \n    h1 {\n    font-size: 4rem;\n    margin-bottom: 20px;\n    }\n    \n    p {\n    margin-bottom: 40px;\n    }\n    \n    button {\n    padding: 10px 20px;\n    background-color: #0077b6;\n    color: #fff;\n    border: none;\n    border-radius: 5px;\n    font-size: 1.2rem;\n    cursor: pointer;\n    }\n    \n    /* Footer styles */\n    footer {\n    background-color: #333;\n    color: #fff;\n    padding: 20px;\n    text-align:center;\n    }\n      </style>\n</head>\n\n<body>\n    <header>\n        <nav>\n            <ul>\n                <li class=\"logo\"><a href=\"#\">SmartEmail</a></li>\n                <li><a href=\"#\">Inbox</a></li>\n                <li><a href=\"#\">Sent</a></li>\n                <li><a href=\"#\">Important</a></li>\n                <li><a href=\"#\">Drafts</a></li>\n                <li><a href=\"#\">Trash</a></li>\n                <li class=\"search\">\n                    <form>\n                        <input type=\"text\" placeholder=\"Search...\">\n                        <button type=\"submit\">Search</button>\n                    </form>\n                </li>\n            </ul>\n        </nav>\n    </header>\n    <main>\n        <h1>Welcome to SmartEmail</h1>\n        <p>An intelligent email management system that helps you manage your inbox more efficiently.</p>\n        <button>Get Started</button>\n    </main>\n    <footer>\n        <p>&copy; 2023 SmartEmail</p>\n    </footer>\n</body>\n\n</html>",
         "output": "str",
-        "x": 850,
-        "y": 420,
+        "x": 650,
+        "y": 380,
         "wires": [
             [
                 "511eb89ac97459d4"
