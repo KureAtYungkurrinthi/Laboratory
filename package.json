@@ -3,7 +3,8 @@
     "description": "Smart Email Inbox utilising Watson and IBM Cloud",
     "version": "0.0.1",
     "dependencies": {
-        "node-red-node-watson": "0.10.3"
+        "node-red-node-watson": "0.10.3",
+        "node-red-contrib-users": "0.1.10"
     },
     "node-red": {
         "settings": {
