@@ -16,6 +16,13 @@
         "env": []
     },
     {
+        "id": "7d4acbc488a1135b",
+        "type": "users_config",
+        "appPath": "/users",
+        "jwtCookieName": "nr.nodeUsers.jwt",
+        "jwtHttpsOnly": true
+    },
+    {
         "id": "88b4181fcd4a9d1b",
         "type": "natural-language-understanding",
         "z": "a1856de285adc81c",
