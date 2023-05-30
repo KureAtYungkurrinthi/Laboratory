@@ -1026,7 +1026,14 @@
         "insecureHTTPParser": false,
         "authType": "",
         "senderr": false,
-        "headers": [],
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "contentType",
+                "valueType": "other",
+                "valueValue": "application/json"
+            }
+        ],
         "x": 330,
         "y": 280,
         "wires": [
