@@ -1021,7 +1021,7 @@
         "method": "GET",
         "ret": "txt",
         "paytoqs": "ignore",
-        "url": "/getEmail",
+        "url": "https://flow.sigure.net/getEmail",
         "tls": "",
         "persist": false,
         "proxy": "",
