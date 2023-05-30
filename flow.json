@@ -1017,7 +1017,7 @@
         "z": "9b92f5ea88500301",
         "name": "",
         "method": "GET",
-        "ret": "txt",
+        "ret": "obj",
         "paytoqs": "ignore",
         "url": "https://flow.sigure.net/getEmails",
         "tls": "",
