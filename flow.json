@@ -834,24 +834,6 @@
         ]
     },
     {
-        "id": "7949e289.83e98c",
-        "type": "users_isloggedin",
-        "z": "9b92f5ea88500301",
-        "name": "",
-        "enableCustomHandler": true,
-        "outputs": 2,
-        "x": 270,
-        "y": 140,
-        "wires": [
-            [
-                "ba8f57e845699ee3"
-            ],
-            [
-                "387fe868.031428"
-            ]
-        ]
-    },
-    {
         "id": "f52c05a3.0a6da8",
         "type": "http in",
         "z": "9b92f5ea88500301",
@@ -864,7 +846,7 @@
         "y": 140,
         "wires": [
             [
-                "7949e289.83e98c"
+                "ba8f57e845699ee3"
             ]
         ]
     },
