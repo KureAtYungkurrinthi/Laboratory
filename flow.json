@@ -846,7 +846,7 @@
         "y": 140,
         "wires": [
             [
-                "ba8f57e845699ee3"
+                "7949e289.83e98c"
             ]
         ]
     },
@@ -1039,6 +1039,24 @@
         "y": 360,
         "wires": [
             []
+        ]
+    },
+    {
+        "id": "7949e289.83e98c",
+        "type": "users_isloggedin",
+        "z": "9b92f5ea88500301",
+        "name": "",
+        "enableCustomHandler": true,
+        "outputs": 2,
+        "x": 270,
+        "y": 140,
+        "wires": [
+            [
+                "ba8f57e845699ee3"
+            ],
+            [
+                "387fe868.031428"
+            ]
         ]
     }
 ]
